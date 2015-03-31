@@ -1329,3 +1329,20 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StratSim\bin\Debug\IKVM.OpenJDK.Misc.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StratSim\bin\Debug\Settings.txt
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StratSim\obj\Debug\StratSim.View.Forms.Instructions.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\StratSim.exe.config
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\Settings.txt
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\StratSim.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\DataSources.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\Graphing.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\DataSources.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\Graphing.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.Properties.Resources.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.View.Forms.Instructions.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.View.Forms.VersionWindow.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.csproj.GenerateResource.Cache

@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\StratSim.ico" />
+    <Content Include="StratSim.accdb" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ExtensionMethods.cs" />
