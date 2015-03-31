@@ -18,7 +18,7 @@ namespace StratSim.Model
         string timingDataBaseFolder;
         float[] trackEvolution = new float[5];
 
-        public const string SettingsFile = "Settings.txt";
+        public const string SettingsFile = "../../../StratSim/Settings.txt";
 
         #region Settings
         /// <summary>

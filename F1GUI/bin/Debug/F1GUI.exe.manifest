@@ -61,7 +61,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>Je8WUwNwM9DL5PKoBjt+o4hcjCtKEQU1lQW1xwIcDDw=</dsig:DigestValue>
+        <dsig:DigestValue>P7UGDcMyOOAwHwkcvTkEsATW3hGbR45AQvFtSkmj5Lk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -127,13 +127,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StratSim.exe" size="3195392">
-      <assemblyIdentity name="StratSim" version="3.0.5568.35995" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="StratSim" version="3.0.5568.38248" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>n1uq0lMRRrwhbn6vMjOKPlroxUdi4/xstzHgO6214Ns=</dsig:DigestValue>
+        <dsig:DigestValue>DsDwRmG1wIX3olhzVvYmlrL5zNv7w5aY8zP9Z0VzGiE=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -145,7 +145,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>mLSHhjOwACZXvzdAmJONEesgmVDnsX5YpcYHilla4E4=</dsig:DigestValue>
+        <dsig:DigestValue>5GaqxWVL8G8dzIfK8oDCgmLhbnzYBc3TymgyGfnp8K8=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
