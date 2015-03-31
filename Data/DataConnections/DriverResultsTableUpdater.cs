@@ -84,53 +84,60 @@ namespace DataSources.DataConnections
 
         public static void SetResults(Result[,] results, Session Session, int numberOfDrivers, int numberOfTracks, int currentYear, Dictionary<int, int> driverIndexDictionary, int[] driverNumbers)
         {
-            //TODO: return records via query and use update/insert
-            var stratSimDataSet = new StratSimDataSet();
-            var driverResultsTableAdapter = new DriverResultsTableAdapter();
-            var raceCalendarTableAdapter = new RaceCalendarTableAdapter();
-            driverResultsTableAdapter.Fill(stratSimDataSet.DriverResults);
-            raceCalendarTableAdapter.Fill(stratSimDataSet.RaceCalendar);
-            StratSimDataSet.DriverResultsRow row;
+            Result result;
+            int driverNumber, raceCalendarIndex;
 
-            bool[,] rowExists = new bool[numberOfDrivers, numberOfTracks];
-            int databaseDriverIndex, databaseTrackIndex;
-            int driverNumber;
-
-            //Modify the existing rows and set a flag if they are found.
-            for (int rowIndex = 0; rowIndex < stratSimDataSet.DriverResults.Count; rowIndex++)
+            //Open the sql connection
+            var sqlConnectionString = DataSources.Program.GetConnectionString();
+            using (var myConn = new OleDbConnection(sqlConnectionString))
             {
-                row = stratSimDataSet.DriverResults[rowIndex];
-                if (currentYear == row.RaceCalendarRow.TrackYear)
-                {
-                    driverNumber = Convert.ToInt32(row.DriverNumber);
-                    databaseDriverIndex = driverIndexDictionary[driverNumber];
-                    databaseTrackIndex = row.RaceCalendarRow.Round - 1;
-                    if (results[databaseDriverIndex, databaseTrackIndex].modified)
-                    {
-                        rowExists[databaseDriverIndex, databaseTrackIndex] = true;
-                        ModifyRow(ref row, results[databaseDriverIndex, databaseTrackIndex], Session);
-                    }
-                    driverResultsTableAdapter.Update(row);
-                }
-            }
+                myConn.Open();
 
-            //Create new rows if the results have not been found.
-            int yearOffset = (currentYear - 2014) * numberOfDrivers * numberOfTracks;
-            for (int raceIndex = 0; raceIndex < numberOfTracks; raceIndex++)
-            {
-                for (int driverIndex = 0; driverIndex < numberOfDrivers; driverIndex++)
+                //For each result
+                for (int raceIndex = 0; raceIndex < numberOfTracks; raceIndex++)
                 {
-
-                    if (results[driverIndex, raceIndex].modified && !rowExists[driverIndex, raceIndex])
+                    for (int driverIndex = 0; driverIndex < numberOfDrivers; driverIndex++)
                     {
-                        row = stratSimDataSet.DriverResults.NewDriverResultsRow();
-                        driverNumber = driverNumbers[driverIndex];
-                        row.DriverNumber = (short)driverNumber;
-                        row.RaceCalendarIndex = (short)RaceCalendarConnection.GetRaceCalendarID(raceIndex + 1, currentYear);
-                        row.DriverResultID = (short)(stratSimDataSet.DriverResults.Count + 1);
-                        ModifyRow(ref row, results[driverIndex, raceIndex], Session);
-                        stratSimDataSet.DriverResults.AddDriverResultsRow(row);
-                        driverResultsTableAdapter.Update(row);
+                        result = results[driverIndex, raceIndex];
+                        if (result.modified)
+                        {
+                            //Get values for the driver number and raceCalendarIndex
+                            driverNumber = driverNumbers[driverIndex];
+                            raceCalendarIndex = (short)RaceCalendarConnection.GetRaceCalendarID(raceIndex + 1, currentYear);
+
+                            //Check if the row exists
+                            var commandText = "SELECT * FROM DriverResults WHERE DriverNumber = @driverNumber AND RaceCalendarIndex = @raceCalendarIndex";
+                            var comm = myConn.CreateCommand();
+                            comm.CommandText = commandText;
+                            comm.CommandType = CommandType.Text;
+                            comm.Parameters.AddWithValue("driverNumber", driverNumber);
+                            comm.Parameters.AddWithValue("raceCalendarIndex", raceCalendarIndex);
+                            var returnValue = comm.ExecuteScalar();
+
+                            if (returnValue != null)
+                            {
+                                //The record exists. Data can be updated.
+                                commandText = "UPDATE DriverResults " +
+                                    "SET " +  GetSetStatement(result, Session) +
+                                    "WHERE DriverNumber = @driverNumber AND RaceCalendarIndex = @raceCalendarIndex";
+                                comm.CommandText = commandText;
+                                comm.Parameters.Clear();
+                                comm.Parameters.AddWithValue("driverNumber", driverNumber);
+                                comm.Parameters.AddWithValue("raceCalendarIndex", raceCalendarIndex);
+                                int resultsModified = comm.ExecuteNonQuery();
+                                if (resultsModified != 1) { throw new InvalidOperationException("Updated multiple rows in driverResults"); }
+                            }
+                            else
+                            {
+                                //The record has to be inserted
+                                commandText = "INSERT INTO DriverResults " + GetFieldsToUpdate(Session) + " " +
+                                    "VALUES " + GetValuesToInsert(result, Session, driverNumber, raceCalendarIndex);
+                                comm.CommandText = commandText;
+                                comm.Parameters.Clear();
+                                int rowsAdded = comm.ExecuteNonQuery();
+                                if (rowsAdded != 1) { throw new InvalidOperationException("Inserted multiple rows in driverResults"); }
+                            }
+                        }
                     }
                 }
             }
@@ -139,45 +146,98 @@ namespace DataSources.DataConnections
                 DatabaseModified(null, new ResultsUpdatedEventArgs(results, Session));
         }
 
+        private static string GetSetStatement(Result result, Session Session)
+        {
+            //Set statement is in the form of key/value pairs, i.e. DriverNumber = '44', etc.
+            //Driver number and race calendar index will already be set, since this record was found.
+            var setStatement = "";
+            switch(Session)
+            {
+                case Session.FP1:
+                    setStatement += "FirstPractice='" + result.position.ToString() + "'";
+                    break;
+                case Session.FP2:
+                    setStatement += "SecondPractice='" + result.position.ToString() + "'";
+                    break;
+                case Session.FP3:
+                    setStatement += "ThirdPractice='" + result.position.ToString() + "'";
+                    break;
+                case Session.Qualifying:
+                    setStatement += "QualiPosition='" + result.position.ToString() + "'" + ", ";
+                    setStatement += "QualiFinishState='" + ((int)result.finishState).ToString() + "'";
+                    break;
+                case Session.SpeedTrap:
+                    setStatement += "SpeedTrap='" + result.position.ToString() + "'";
+                    break;
+                case Session.Grid:
+                    setStatement += "Grid='" + result.position.ToString() + "'";
+                    break;
+                case Session.Race:
+                    setStatement += "Position='" + result.position.ToString() + "'" + ", ";
+                    setStatement += "FinishState='" + ((int)result.finishState).ToString() + "'";
+                    break;
+            }
+            return setStatement;
+        }
+
+        private static string GetFieldsToUpdate(Session Session)
+        {
+            //This is a new row so the driverNumber, raceCalendarIndex, and session need to be updated.
+            string fields = "DriverNumber, RaceCalendarIndex, ";
+            switch (Session)
+            {
+                case Session.FP1:
+                    fields += "FirstPractice";
+                    break;
+                case Session.FP2:
+                    fields += "SecondPractice";
+                    break;
+                case Session.FP3:
+                    fields += "ThirdPractice";
+                    break;
+                case Session.Qualifying:
+                    fields += "QualiPosition, ";
+                    fields += "QualiFinishState";
+                    break;
+                case Session.SpeedTrap:
+                    fields += "SpeedTrap";
+                    break;
+                case Session.Grid:
+                    fields += "Grid";
+                    break;
+                case Session.Race:
+                    fields += "Position, ";
+                    fields += "FinishState";
+                    break;
+            }
+            return fields;
+        }
+
+        private static string GetValuesToInsert(Result result, Session Session, int driverNumber, int raceCalendarIndex)
+        {
+            string values = "'" + driverNumber.ToString() + "', ";
+            values += "'" + raceCalendarIndex.ToString() + "', ";
+            switch (Session)
+            {
+                case Session.FP1:
+                case Session.FP2:
+                case Session.FP3:
+                case Session.SpeedTrap:
+                case Session.Grid:
+                    values += "'" + result.position.ToString() + "'";
+                    break;
+                case Session.Qualifying:
+                case Session.Race:
+                    values += "'" + result.position.ToString() + "', ";
+                    values += "'" + ((int)result.finishState).ToString() + "'";
+                    break;
+            }
+            return values;
+        }
+
         /// <summary>
         /// Note that the results only contain the updated results, not a complete list
         /// </summary>
         public static event EventHandler<ResultsUpdatedEventArgs> DatabaseModified;
-
-        private static void ModifyRow(ref StratSimDataSet.DriverResultsRow row, Result result, Session Session)
-        {
-            for (int column = 3; column < row.ItemArray.Length; column++)
-            {
-                if (row[column] == DBNull.Value)
-                    row[column] = 0;
-            }
-
-            switch (Session)
-            {
-                case Session.FP1:
-                    row[3] = result.position;
-                    break;
-                case Session.FP2:
-                    row[4] = result.position;
-                    break;
-                case Session.FP3:
-                    row[5] = result.position;
-                    break;
-                case Session.Qualifying:
-                    row[6] = result.position;
-                    row[7] = result.finishState;
-                    break;
-                case Session.SpeedTrap:
-                    row[8] = result.position;
-                    break;
-                case Session.Grid:
-                    row[9] = result.position;
-                    break;
-                case Session.Race:
-                    row[10] = result.position;
-                    row[11] = result.finishState;
-                    break;
-            }
-        }
     }
 }

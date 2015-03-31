@@ -26,8 +26,7 @@ namespace DataSources.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\\Users\\Alex\\SkyDrive\\Documents\\Pr" +
-            "ojects\\StratSim\\3.1.9\\Strategy Simulation V2\\Data\\StratSim.accdb")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\StratSim.accdb")]
         public string StratSimConnectionString {
             get {
                 return ((string)(this["StratSimConnectionString"]));
