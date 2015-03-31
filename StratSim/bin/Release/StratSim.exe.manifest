@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="StratSim.exe" version="1.0.0.2" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="StratSim" version="3.0.5260.18830" language="neutral" processorArchitecture="msil" />
+    <commandLine file="StratSim.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataSources.exe" size="116736">
+      <assemblyIdentity name="DataSources" version="1.0.5203.39379" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>iB1FIyiBp3SosTNhOataAa/wtA0EEXUBncY0l28uqd8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="MyFlowLayout.exe" size="116736">
+      <assemblyIdentity name="MyFlowLayout" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>BdBziosuQkTcIb1DOeu/x5LpZui1jMM1mPiqoDeLR+8=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StratSim.exe" size="3207168">
+      <assemblyIdentity name="StratSim" version="3.0.5260.18830" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>X8Lz6K+j2LQSrvspYJaB1yIAqqw7H6rbUj4e4PNTHOw=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Resources\Archives.png" size="277">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>yHRunNAu4UFLl+4mLAhjboUQIpZozj/dhHmF75iXI5M=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Axes.png" size="231">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>26YqBRx/pa7wfRpZ+YnATxMIFXwol4Cvrj+mgDIjW6A=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Caterham.jpg" size="92168">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>i6mgW15b2pabRecFlJcf5uI97kyuq07IYEVV3UgkuOg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Driver Select.png" size="256">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2xHKXCcRR62BWyTkamug/X47WywKCqyzx4+Syp6QHLs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Ferrari.jpg" size="359430">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>qwNUxmKxckROtvpb283bP/w9Qae1QSzVNhStfQQgHcI=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\ForceIndia.jpg" size="190048">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>TuqZ4kUN3JfD0UAKaE5zmfZ6TRNyVs23AOEr+GJzd6k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Graph.png" size="238">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>enfPImtufMxugf19WgzK2XNA74NHEKk52aHzqhaEHuc=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Info.png" size="242">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>wCYCRVyAgs2ifOQTdfjMyZZLkucgCng0t1ubswrqbSA=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Input.png" size="270">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>eBLvjQynP5y1fgf2oWqtWpYVS5M0lhulPOfwmWux+EE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Lotus.jpg" size="102393">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>grAbKF5aIkvOL1Yx3gT4U9K2ExQja38IVfKIInO3Zr0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Marussia.jpg" size="911798">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>2FC8itv6WUaDafeQ6J6B/wqP2YXldhOAotJCd1Tdflg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Mclaren.jpg" size="58116">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>0xKeVj+K6GMKScxj8Fg0vPPhd0965l/5VA2Nwl93XO8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\MercedesAMG.jpg" size="141113">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>DGbT5WL2dDmHa4LqdziyA3F/ryFdm1cvqie6tJFQ0j4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Open.png" size="285">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>AY0wD4K0xfadL0hcOs0xwTVx4RgAlQUnLP7tbNRBIh0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Pace Parameters.png" size="167">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>mE3MRzDMvbojYO+fFxT8Fc/yyMCft/J+hS11tYMfd4I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Poolegrammar.png" size="11342">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Nafv5hMRzJVipYjvz4uSsPS6BUitlfcJqC8spjY3uio=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Race.png" size="215">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UKFNxyWERlIk78Q5VPFovUoqeYmjKbQgzcX3GBWhcak=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\RedBull.jpg" size="178577">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vUgJ4XtCBT6L1gpKTM0Ve/4BasTdux09/ty/lYQG6pQ=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Reset.png" size="272">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>zCdYMnf+CnVQMbkNzxm/I6UoTdPmP18viqwUlJiVo2g=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Sauber.jpg" size="162757">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>MtZ2KFOqIACDjzXg70mnrmEwE0vtEW8Pw9ODu1cErqw=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Save.png" size="179">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>HpIuksgtnfU5ggdUmuxnNp1Ne3wiRWz9Q5QJXePRSD8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Settings.png" size="256">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>UGyQVC5Wr3Wj3o6eYETsmEvgnFsTDsHRcRYHSEemQk4=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Start.png" size="221">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>94SUgpaQZxUbbO/6/VZLNvZLAsPZvbK3Th7iUTbzgJE=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Stint_Add.png" size="226">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tkWtpz2OXz+WnlsWYXrAHoChmm7hHFnET4hnf4hKa0I=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Stint_Down.png" size="285">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>eA9PqC+VoXQfV5rRzHpfnqZyUxY4IDHp1rsXZeMOD38=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Stint_Remove.png" size="171">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ME6E+Wo5GEPA4vA5x26IfK8d+W3q2Ny09UU+xTFZPPo=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Stint_Up.png" size="280">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>cHn/t0/OH6F86z4ivRmrLP1A3hFX58V6XXXkG3z7Bek=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Strategies.png" size="240">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>kS2fm/BzTOJIN6lPLAsQ83oK4EnrXxj0oUb2LOOa6+k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\StratSim.ico" size="21238">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>z5C4+Hh0P3gkyfyOhh53RFNpljVEmvZ07gIRK9WiU/o=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Timing.png" size="256">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>3TL4Oe13cV/DwIN57JggofVC2MyYaeIl9LaGd+C3czM=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\TorroRosso.jpg" size="102344">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>ttjnTdBwTbMJudz2O/l8iF0WuNL3UAWN62OF2eEY40c=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Update.png" size="372">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>tyEcX0vMpqtYH4lKM5ioIdGfuilVkfih8JuDAwigTrg=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Resources\Williams.jpg" size="683420">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>SmIQxdrbu2U9rlDYt40qverlud7XlyCOzWUL6DZy9Mk=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="Settings.txt" size="136">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>l/zfKmnHccdn45vXs0Ql8H520IxovtaFtIQK6CxD9w8=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="StratSim.exe.config" size="516">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>Jy/HmPtXJ9obiuafya7prjw+3fmV2S0Bmtj2wCWP6iY=</dsig:DigestValue>
+    </hash>
+  </file>
+</asmv1:assembly>

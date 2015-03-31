@@ -1,0 +1,17 @@
+-10
+-10
+0.8
+1
+0.6
+-0.8
+0.2
+0.08
+325
+0.005
+200
+40
+../../../
+0.8,0.3,0.4,0,-0.2,-0.2
+-0.3
+AcroRd32
+C:\Users\Alex\SkyDrive\Documents\Projects\F1\Race Reports

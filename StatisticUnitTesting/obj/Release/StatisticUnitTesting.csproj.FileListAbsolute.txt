@@ -1,0 +1,15 @@
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\obj\Release\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\TeamStats.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\TeamStats.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Release\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\obj\Release\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\obj\Release\StatisticUnitTesting.pdb

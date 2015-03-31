@@ -1,0 +1,8 @@
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\bin\Release\MyFlowLayout.exe.config
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\bin\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\bin\Release\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\obj\Release\MyFlowLayout.MainForm.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\obj\Release\MyFlowLayout.Properties.Resources.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\obj\Release\MyFlowLayout.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\obj\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\MyFlowLayout\obj\Release\MyFlowLayout.pdb

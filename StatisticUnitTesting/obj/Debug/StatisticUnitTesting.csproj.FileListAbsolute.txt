@@ -1,0 +1,167 @@
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.accdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V3\3.1.1\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.4\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\Programs\Programming\C#\StratSim\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\Programs\Programming\C#\StratSim\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.5\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\Projects\StratSim\3.1.6\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.accdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Graphing.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.7\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Graphing.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Graphing.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Graphing.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.8\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.accdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Settings.txt
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Graphing.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\DataSources.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\StratSim.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\TeamStats.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\Graphing.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\pdfbox-1.8.7.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.Runtime.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Core.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\commons-logging.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Media.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\junit.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\fontbox-1.8.7.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Util.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Text.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\jempbox-1.8.7.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Security.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\bcmail-jdk15-1.44.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\bcprov-jdk15-1.44.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.XML.API.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\icu4j-3.8.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.Runtime.JNI.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Management.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Beans.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.AWT.WinForms.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Charsets.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Naming.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Jdbc.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Remoting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Corba.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Misc.dll

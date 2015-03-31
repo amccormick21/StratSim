@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6A9DC4C-0351-4AEB-ADB1-4461424107FC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>StratSim</RootNamespace>
+    <AssemblyName>StratSim</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Alex\Desktop\Documents\SkyDrive\Documents\A Level-Alex-PC\Computing\A2 Project\StratSim Application Files\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>F954612FF1CEF88119E5E8A98C68885E67ABC590</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>StratSim_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>false</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\StratSim.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IKVM.OpenJDK.Core">
+      <HintPath>..\..\..\..\..\..\..\Documents\Programs\Programming\C#\PDFBox.NET-1.8.7\bin\IKVM.OpenJDK.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="IKVM.OpenJDK.SwingAWT">
+      <HintPath>..\..\..\..\..\..\..\Documents\Programs\Programming\C#\PDFBox.NET-1.8.7\bin\IKVM.OpenJDK.SwingAWT.dll</HintPath>
+    </Reference>
+    <Reference Include="pdfbox-1.8.7">
+      <HintPath>..\..\..\..\..\..\..\Documents\Programs\Programming\C#\PDFBox.NET-1.8.7\bin\pdfbox-1.8.7.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\CalculationControllers\CalculationController.cs" />
+    <Compile Include="Model\Data.cs" />
+    <Compile Include="Model\DriverData.cs" />
+    <Compile Include="Model\Files\GridData.cs" />
+    <Compile Include="Model\PaceParameterCollection.cs" />
+    <Compile Include="Model\PracticeTimesCollection.cs" />
+    <Compile Include="Model\RaceStrategy.cs" />
+    <Compile Include="Model\Team.cs" />
+    <Compile Include="ViewModel\DriverIndexEventArgs.cs" />
+    <Compile Include="ViewModel\IFile.cs" />
+    <Compile Include="ViewModel\PaceParameterData.cs" />
+    <Compile Include="ViewModel\StrategyViewerData.cs" />
+    <Compile Include="Model\Driver.cs" />
+    <Compile Include="Model\Files\DataController.cs" />
+    <Compile Include="Model\Files\IData.cs" />
+    <Compile Include="Model\Files\LapData.cs" />
+    <Compile Include="Model\Files\SpeedData.cs" />
+    <Compile Include="Model\Files\TimingData.cs" />
+    <Compile Include="Model\PitStop.cs" />
+    <Compile Include="Model\Race.cs" />
+    <Compile Include="Model\Settings.cs" />
+    <Compile Include="Model\Stint.cs" />
+    <Compile Include="Model\Strategy.cs" />
+    <Compile Include="Model\Track.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\MyEvents.cs" />
+    <Compile Include="View\Forms\Instructions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\Instructions.Designer.cs">
+      <DependentUpon>Instructions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MyFlowLayout\StratSimFormIOController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\MyFlowLayout\StratSimMyToolbar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\MyFlowLayout\StratSimPanelControlEvents.cs" />
+    <Compile Include="View\MyFlowLayout\StratSimWindowFlowPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\AxesWindow.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\DataInput.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\DriverSelectPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\GridPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\InfoPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\NewGraph.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\NewStartPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\GridBasePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\RacePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\SettingsPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Forms\VersionWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\Forms\VersionWindow.Designer.cs">
+      <DependentUpon>VersionWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Panels\TimingArchives.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\IDriverIndexControl.cs" />
+    <Compile Include="View\UserControls\MyToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\ParameterTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\DriverPanelControls.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\RaceDropDown.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\StintPanelButtons.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\StrategyViewer.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\Panels\PaceParameters.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\StintPanels.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="View\UserControls\StrategyLine.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="View\Forms\Instructions.resx">
+      <DependentUpon>Instructions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Forms\VersionWindow.resx">
+      <DependentUpon>VersionWindow.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Archives.png" />
+    <Content Include="Resources\Axes.png" />
+    <Content Include="Resources\Caterham.jpg" />
+    <Content Include="Settings.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\DownFive.png" />
+    <Content Include="Resources\Driver Select.png" />
+    <Content Include="Resources\Ferrari.jpg" />
+    <Content Include="Resources\ForceIndia.jpg" />
+    <Content Include="Resources\Graph.png" />
+    <None Include="Resources\Grid.png" />
+    <Content Include="Resources\Info.png" />
+    <Content Include="Resources\Input.png" />
+    <Content Include="Resources\Lotus.jpg" />
+    <Content Include="Resources\Marussia.jpg" />
+    <Content Include="Resources\Mclaren.jpg" />
+    <Content Include="Resources\MercedesAMG.jpg" />
+    <Content Include="Resources\Open.png" />
+    <Content Include="Resources\Pace Parameters.png" />
+    <Content Include="Resources\Poolegrammar.png" />
+    <Content Include="Resources\Race.png" />
+    <Content Include="Resources\RedBull.jpg" />
+    <Content Include="Resources\Reset.png" />
+    <Content Include="Resources\Sauber.jpg" />
+    <Content Include="Resources\Save.png" />
+    <Content Include="Resources\Settings.png" />
+    <Content Include="Resources\Start.png" />
+    <Content Include="Resources\Stint_Add.png" />
+    <Content Include="Resources\Stint_Down.png" />
+    <Content Include="Resources\Stint_Remove.png" />
+    <Content Include="Resources\Stint_Up.png" />
+    <Content Include="Resources\Strategies.png" />
+    <Content Include="Resources\StratSim.ico" />
+    <Content Include="Resources\Timing.png" />
+    <Content Include="Resources\TorroRosso.jpg" />
+    <Content Include="Resources\Update.png" />
+    <None Include="Resources\UpFive.png" />
+    <Content Include="Resources\Williams.jpg" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Data\DataSources.csproj">
+      <Project>{c6c21b8f-c0cb-4aa3-b2a1-ea97ab36a876}</Project>
+      <Name>DataSources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Graphing\Graphing.csproj">
+      <Project>{4015b128-479a-449c-b56a-bbc2cd09ad86}</Project>
+      <Name>Graphing</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyFlowLayout\MyFlowLayout.csproj">
+      <Project>{e3f07f41-d65b-444b-8351-ccbb88e1b734}</Project>
+      <Name>MyFlowLayout</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

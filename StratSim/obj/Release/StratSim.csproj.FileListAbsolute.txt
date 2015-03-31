@@ -1,0 +1,198 @@
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.config
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Settings.txt
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\StratSim.accdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Timing.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Update.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Williams.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\TorroRosso.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Caterham.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Archives.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Axes.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Close_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Close_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Ferrari.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\ForceIndia.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Form_Header.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Driver Select.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\FullScreen_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\FullScreen_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Graph.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Hide_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Hide_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Lotus.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Marussia.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Mclaren.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\MercedesAMG.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Open.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Pace Parameters.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Info.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Input.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Main.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Panel_Header.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Poolegrammar.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\RestoreDown_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Sauber.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\RestoreDown_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Race.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Reset.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Save.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Screen_Background.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Add.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Down.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Remove.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Up.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Strategies.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Settings.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\Start.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\StratSim.ico
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\Properties\RedBull.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.manifest
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\StratSim.application
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\bin\Release\StratSim.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.csprojResolveAssemblyReference.cache
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.MyFlowLayout.MainForm.resources
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.Properties.Resources.resources
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.Forms.VersionWindow.resources
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.csproj.GenerateResource.Cache
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe.manifest
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.application
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.9\Strategy Simulation V2\StratSim\obj\Release\StratSim.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.config
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.csprojResolveAssemblyReference.cache
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.MyFlowLayout.MainForm.resources
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.Properties.Resources.resources
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.Forms.VersionWindow.resources
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.csproj.GenerateResource.Cache
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Settings.txt
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\StratSim.accdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Timing.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Update.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Williams.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\TorroRosso.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Caterham.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Archives.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Axes.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Close_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Close_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Ferrari.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\ForceIndia.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Form_Header.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Driver Select.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\FullScreen_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\FullScreen_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Graph.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Hide_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Hide_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Lotus.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Marussia.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Mclaren.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\MercedesAMG.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Open.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Pace Parameters.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Info.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Input.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Main.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Panel_Header.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Poolegrammar.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\RestoreDown_Display.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Sauber.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\RestoreDown_Hover.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Race.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Reset.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Save.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Screen_Background.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Add.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Down.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Remove.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Stint_Up.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Strategies.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Settings.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\Start.png
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\StratSim.ico
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\Properties\RedBull.jpg
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.manifest
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\StratSim.application
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\bin\Release\StratSim.pdb
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe.manifest
+\\sch5409.poole.sch.uk\public\HomeDirs\Students\08\08mccormickale\My Documents\A Level\Computing\A2 Project\Versions\V2\2.7.10\Strategy Simulation V2\StratSim\obj\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.config
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.Properties.Resources.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.Forms.VersionWindow.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.17\Strategy Simulation V2\StratSim\obj\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.config
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.Properties.Resources.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.Forms.VersionWindow.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.0.18\Strategy Simulation V2\StratSim\obj\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.config
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.Properties.Resources.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.Forms.VersionWindow.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.0\Strategy Simulation V2\StratSim\obj\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\StratSim.accdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\Settings.txt
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.config
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\StratSim.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\DataSources.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\DataSources.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\bin\Release\MyFlowLayout.pdb
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.csprojResolveAssemblyReference.cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.Properties.Resources.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.View.Forms.VersionWindow.resources
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.csproj.GenerateResource.Cache
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe.manifest
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.application
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.exe
+C:\Users\Alex\Desktop\Documents\OneDrive\Documents\A Level-Alex-PC\Computing\A2 Project\Versions\V3\3.1.3\Strategy Simulation V2\StratSim\obj\Release\StratSim.pdb
