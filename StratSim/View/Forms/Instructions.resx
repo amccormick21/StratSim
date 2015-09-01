@@ -120,7 +120,7 @@
   <data name="label1.Text" xml:space="preserve">
     <value>To model a race immediately, select 'Australia' in the race drop down, and then click on the Pace Parameters - race button. This will allow you to select the Strategies - data button. The system has access to lap times from every practice and race session from 2014 and Australia 2015, parsed from FIA PDF data. It analyses these lap times to produce parameters describing all cars' performance, and then optimises strategies as a result.
 
-Strategies for all cars have now been optimised and the race can be viewed on a lap vs time graph. To see the graph, press 'view', and then 'Start Race' in the window that opens.
+Strategies for all cars have now been optimised and the race can be viewed on a lap vs time graph. To see the graph, press 'race', and then 'Start Race' in the window that opens.
 
 A panel on the right shows the expected positions by the end of the race, while the graph shows the car performance throughout the race.
 

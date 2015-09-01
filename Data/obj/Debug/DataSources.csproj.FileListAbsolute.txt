@@ -197,9 +197,4 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Data\bin\Debug\DataSources.pdb
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Data\obj\Debug\DataSources.exe
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Data\obj\Debug\DataSources.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Data\bin\Debug\DataSources.exe.config
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Data\bin\Debug\DataSources.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Data\bin\Debug\DataSources.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Data\obj\Debug\DataSources.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Data\obj\Debug\DataSources.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Data\obj\Debug\DataSources.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Data\obj\Debug\DataSources.csprojResolveAssemblyReference.cache

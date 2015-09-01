@@ -137,29 +137,3 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\F1GUI\bin\Debug\IKVM.OpenJDK.Corba.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\F1GUI\bin\Debug\IKVM.OpenJDK.Misc.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\F1GUI\bin\Debug\Settings.txt
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\Settings.txt
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\F1GUI.exe.config
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\F1GUI.exe.manifest
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\F1GUI.application
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\F1GUI.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\F1GUI.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\MyFlowLayout.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\StratSim.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\TeamStats.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\DataSources.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\Graphing.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\pdfbox-1.8.7.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\IKVM.OpenJDK.Core.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\MyFlowLayout.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\StratSim.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\TeamStats.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\DataSources.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\bin\Debug\Graphing.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.csprojResolveAssemblyReference.cache
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.Properties.Resources.resources
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.csproj.GenerateResource.Cache
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.exe.manifest
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.application
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\F1GUI\obj\Debug\F1GUI.pdb

@@ -165,23 +165,3 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Remoting.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Corba.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Misc.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\StratSim.accdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\Settings.txt
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\StatisticUnitTesting.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\DataSources.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\StratSim.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\TeamStats.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\MyFlowLayout.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\Graphing.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\pdfbox-1.8.7.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.Core.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\IKVM.OpenJDK.SwingAWT.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\DataSources.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\StratSim.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\TeamStats.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\MyFlowLayout.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\bin\Debug\Graphing.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.csprojResolveAssemblyReference.cache
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StatisticUnitTesting\obj\Debug\StatisticUnitTesting.pdb

@@ -17,10 +17,3 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Graphing\obj\Debug\Graphing.csprojResolveAssemblyReference.cache
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Graphing\obj\Debug\Graphing.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\Graphing\obj\Debug\Graphing.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\bin\Debug\Graphing.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\bin\Debug\Graphing.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\bin\Debug\MyFlowLayout.exe
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\bin\Debug\MyFlowLayout.pdb
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\obj\Debug\Graphing.csprojResolveAssemblyReference.cache
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\obj\Debug\Graphing.dll
-C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\Graphing\obj\Debug\Graphing.pdb

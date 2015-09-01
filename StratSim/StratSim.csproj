@@ -236,6 +236,7 @@
     <Content Include="Resources\Archives.png" />
     <Content Include="Resources\Axes.png" />
     <Content Include="Resources\Caterham.jpg" />
+    <None Include="Resources\StratSim.png" />
     <Content Include="Settings.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
