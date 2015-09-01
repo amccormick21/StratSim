@@ -1326,3 +1326,43 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StratSim\bin\Debug\IKVM.OpenJDK.Misc.dll
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StratSim\bin\Debug\Settings.txt
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\StratSim\obj\Debug\StratSim.View.Forms.Instructions.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\Settings.txt
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\StratSim.exe.config
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\StratSim.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\DataSources.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\Graphing.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.Runtime.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Util.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Security.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Text.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.XML.API.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Beans.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Media.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.AWT.WinForms.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Charsets.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\commons-logging.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\junit.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\fontbox-1.8.7.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\jempbox-1.8.7.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\bcmail-jdk15-1.44.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\bcprov-jdk15-1.44.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\icu4j-3.8.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.Runtime.JNI.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Management.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Naming.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Jdbc.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Remoting.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Corba.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\IKVM.OpenJDK.Misc.dll
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\DataSources.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\Graphing.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.Properties.Resources.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.View.Forms.Instructions.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.View.Forms.VersionWindow.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.csproj.GenerateResource.Cache
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\StratSim\obj\Debug\StratSim.pdb

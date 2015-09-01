@@ -35,7 +35,7 @@ namespace StratSim.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("2015")]
+        [global::System.Configuration.DefaultSettingValueAttribute("2014")]
         public int CurrentYear {
             get {
                 return ((int)(this["CurrentYear"]));

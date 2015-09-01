@@ -52,7 +52,7 @@ namespace StratSim
             return new StratSimFormIOController(MainPanel, Toolbar, Events, "StratSim");
         }
 
-        static void SetupStaticClasses()
+        internal static void SetupStaticClasses()
         {
             myModel = new Data();
         }

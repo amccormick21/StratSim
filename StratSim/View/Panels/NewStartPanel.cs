@@ -59,7 +59,7 @@ namespace StratSim.View.Panels
             RaceSelectBox.SelectedIndexChanged += RaceSelectBox_SelectedIndexChanged;
 
             YearSelectBox.Items.AddRange(new object[] { 2014, 2015 });
-            YearSelectBox.SelectedIndex = 1;
+            YearSelectBox.SelectedIndex = 0;
             YearSelectBox.SelectedIndexChanged += YearSelectBox_SelectedIndexChanged;
         }
 
@@ -311,6 +311,8 @@ namespace StratSim.View.Panels
         void YearSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Properties.Settings.Default.CurrentYear = Convert.ToInt32(YearSelectBox.SelectedItem);
+            //Re-initialise the tracks and drivers
+            Program.SetupStaticClasses();
         }
         void PPFromRace_Click(object sender, EventArgs e)
         {
