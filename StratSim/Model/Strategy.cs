@@ -218,7 +218,8 @@ namespace StratSim.Model
             float fuelTimePerLap = this.PaceParameters.PaceParameters[PaceParameterType.FuelConsumption] * this.PaceParameters.PaceParameters[PaceParameterType.FuelEffect];
 
             int lap;
-            for (lap = 0; lap < stintToPopulate.stintLength; lap++)
+            int stintLength = stintToPopulate.stintLength;
+            for (lap = 0; lap < stintLength; lap++)
             {
                 fuelAddedTime = (lapsInRace - stintToPopulate.startLap - lap) * (fuelTimePerLap);
                 lapTime = this.PaceParameters.PaceParameters[PaceParameterType.Pace];
@@ -296,6 +297,7 @@ namespace StratSim.Model
         void AddLapToStint(Stint stintToAdd, float lapTime)
         {
             stintToAdd += lapTime;
+            stintToAdd.stintLength--;
         }
 
         /// <summary>

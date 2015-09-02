@@ -56,17 +56,34 @@ namespace StratSim.Model
             set { pitStopLoss = value; }
         }
 
-        public void SetPaceParameters(PracticeTimesCollection Collection, int raceIndex)
+        public void SetPaceParameters(PracticeTimesCollection collection, int raceIndex)
         {
             PaceParameters[PaceParameterType.FuelLoadP2] = Data.Settings.DefaultP2Fuel;
-            PaceParameters[PaceParameterType.TopSpeed] = Collection.TopSpeed;
+            PaceParameters[PaceParameterType.TopSpeed] = collection.TopSpeed;
             PitStopLoss = Data.Tracks[raceIndex].pitStopLoss;
             PaceParameters[PaceParameterType.FuelConsumption] = Data.Tracks[raceIndex].fuelPerLap;
-            PaceParameters[PaceParameterType.TyreDelta] = GetTyreDelta(Collection.PracticeSessionStints);
-            PaceParameters[PaceParameterType.FuelEffect] = GetFuelEffect(Collection.PracticeSessionStints);
-            PaceParameters[PaceParameterType.PrimeDegradation] = GetPrimeDegradation(Collection.PracticeSessionStints);
-            PaceParameters[PaceParameterType.OptionDegradation] = GetOptionDegradation(Collection.PracticeSessionStints);
-            PaceParameters[PaceParameterType.Pace] = GetLowFuelPace(Collection.PracticeSessionStints);
+            PaceParameters[PaceParameterType.TyreDelta] = GetTyreDelta(collection.PracticeSessionStints);
+            PaceParameters[PaceParameterType.FuelEffect] = GetFuelEffect(collection.PracticeSessionStints);
+            float primeDegradation = GetPrimeDegradation(collection.PracticeSessionStints);
+            float optionDegradation = GetOptionDegradation(collection.PracticeSessionStints, primeDegradation);
+            SetTyreDegradation(primeDegradation, optionDegradation);
+            PaceParameters[PaceParameterType.Pace] = GetLowFuelPace(collection.PracticeSessionStints);
+        }
+
+        private void SetTyreDegradation(float primeDegradation, float optionDegradation)
+        {
+            if (primeDegradation > optionDegradation)
+            {
+                //Set defaults
+                PaceParameters[PaceParameterType.PrimeDegradation] = Data.Settings.DefaultPrimeDegradation;
+                PaceParameters[PaceParameterType.OptionDegradation] = Data.Settings.DefaultOptionDegradation;
+            }
+            else
+            {
+                //Set to the values as normal
+                PaceParameters[PaceParameterType.PrimeDegradation] = primeDegradation;
+                PaceParameters[PaceParameterType.OptionDegradation] = optionDegradation;
+            }
         }
 
         private float GetLowFuelPace(List<Stint>[] SessionStints)
@@ -80,7 +97,7 @@ namespace StratSim.Model
                 foreach (Stint s in SessionStints[sessionDataIndex])
                 {
                     //Adjusts according to track evolution
-                    stintFastestLap = s.FastestLap() - Data.Settings.TrackEvolution[sessionDataIndex];
+                    stintFastestLap = s.FastestLap(PaceParameters[PaceParameterType.FuelConsumption] * PaceParameters[PaceParameterType.FuelEffect], PaceParameters[PaceParameterType.PrimeDegradation], PaceParameters[PaceParameterType.OptionDegradation]) - Data.Settings.TrackEvolution[sessionDataIndex];
                     if (stintFastestLap < fastestLap)
                     {
                         fastestLap = stintFastestLap;
@@ -91,7 +108,7 @@ namespace StratSim.Model
             return fastestLap;
         }
 
-        struct fastestLaps
+        /*struct fastestLaps
         {
             public int fastestLapIndex;
             public int secondFastestLapIndex;
@@ -99,8 +116,160 @@ namespace StratSim.Model
             public float secondFastestLap;
             public float effectOfFuel;
             public float degradation;
-        };
+        };*/
 
+        private float[,] GetPointArrayFromStints(List<Stint> stints)
+        {
+            int totalLaps = 0;
+            foreach (Stint s in stints)
+            {
+                totalLaps += s.stintLength;
+            }
+
+            float[,] dataPoints = new float[totalLaps, 2];
+            float[,] stintPoints;
+            int stintLapIndex;
+            int sessionLapIndex = 0;
+            float stintFastestLap;
+            float stintGradient, stintIntercept;
+            foreach (Stint s in stints)
+            {
+                stintLapIndex = 0;
+                stintFastestLap = s.FastestLap();
+
+                //First, collect all of the points from the stint
+                stintPoints = new float[s.stintLength, 2];
+                foreach (float l in s.lapTimes)
+                {
+                    stintPoints[stintLapIndex, 0] = stintLapIndex;
+                    stintPoints[stintLapIndex++, 1] = l;
+                }
+                //Plot a line through the stint to determine how it regresses.
+                DataSources.Functions.LinearLeastSquaresFit(stintPoints, out stintGradient, out stintIntercept);
+
+                //Normalise the data on the intercept and add to the main array
+                stintLapIndex = 0;
+                foreach (float l in s.lapTimes)
+                {
+                    dataPoints[sessionLapIndex, 0] = stintLapIndex++;
+                    dataPoints[sessionLapIndex++, 1] = l - stintIntercept;
+                }
+            }
+            return dataPoints;
+        }
+
+        private float GetAverageDegratationFromStints(List<Stint> stints)
+        {
+            float[,] dataPoints = GetPointArrayFromStints(stints);
+            float gradient, intercept;
+            float error = DataSources.Functions.LinearLeastSquaresFit(dataPoints, out gradient, out intercept);
+            //Degradation per lap is the gradient of this line
+            //Can validate here to have an error within certain bounds.
+            return gradient;
+        }
+
+        private float GetOptionDegradation(List<Stint>[] SessionStints, float primeDegradation)
+        {
+            /* Finding the option degradation:
+             * FP2, FP3, and qualifying will have stints with the option tyre
+             * Pick the fastest stint with more than two valid laps to consider
+             * Add all valid stints to an overall list, which is then analysed
+             */
+
+            List<Stint> validStints = new List<Stint>();
+            float fastestLapInSession;
+            int fastestStintIndexInSession;
+            float stintFastestLap;
+            int lapsCloseToFastest;
+
+            for (int sessionIndex = 1; sessionIndex < 4; sessionIndex++)
+            {
+                fastestStintIndexInSession = -1;
+                fastestLapInSession = 0;
+                for (int stintIndex = 0; stintIndex < SessionStints[sessionIndex].Count; stintIndex++)
+                {
+                    //If the stint has more than two valid laps, we can consider it
+                    stintFastestLap = SessionStints[sessionIndex][stintIndex].FastestLap();
+                    lapsCloseToFastest = 0;
+                    foreach (var l in SessionStints[sessionIndex][stintIndex].lapTimes)
+                    {
+                        if (l / stintFastestLap < 1.02)
+                            lapsCloseToFastest++;
+                    }
+                    if (lapsCloseToFastest >= 2)
+                    {
+                        //Record the fastest lap and the index in a most wanted holder
+                        if (stintFastestLap < fastestLapInSession || fastestStintIndexInSession == -1)
+                        {
+                            fastestLapInSession = stintFastestLap;
+                            fastestStintIndexInSession = stintIndex;
+                        }
+                    }
+                }
+                //Add the best stint to the list
+                if (fastestStintIndexInSession != -1)
+                {
+                    validStints.Add(SessionStints[sessionIndex][fastestStintIndexInSession]);
+                }
+            }
+
+            //Now analyse the list
+            float degradation = GetAverageDegratationFromStints(validStints) + (PaceParameters[PaceParameterType.FuelConsumption] * PaceParameters[PaceParameterType.FuelEffect]);
+            if (degradation < primeDegradation)
+            {
+                degradation = Data.Settings.DefaultOptionDegradation;
+            }
+            return degradation;
+        }
+
+        private float GetPrimeDegradation(List<Stint>[] SessionStints)
+        {
+            /* Finding the prime degradation:
+             * FP1, 2, 3 all have stints done on the prime tyre
+             * Pick the longest stint and use this to analyse the tyre degradation
+             */
+
+            List<Stint> validStints = new List<Stint>();
+            int longestStintInSession;
+            int longeststintIndexInSession = 0;
+            float fastestLapFound = 0;
+
+            for (int sessionIndex = 0; sessionIndex < 3; sessionIndex++)
+            {
+                longeststintIndexInSession = -1;
+                longestStintInSession = 0;
+                for (int stintIndex = 0; stintIndex < SessionStints[sessionIndex].Count; stintIndex++)
+                {
+                    //Check the length
+                    if (SessionStints[sessionIndex][stintIndex].stintLength > longestStintInSession || longeststintIndexInSession == -1)
+                    {
+                        longestStintInSession = SessionStints[sessionIndex][stintIndex].stintLength;
+                        longeststintIndexInSession = stintIndex;
+                    }
+                }
+                //Add the best stint to the list
+                if (longeststintIndexInSession != -1)
+                {
+                    validStints.Add(SessionStints[sessionIndex][longeststintIndexInSession]);
+                    if (sessionIndex == 0 || SessionStints[sessionIndex][longeststintIndexInSession].FastestLap() < fastestLapFound)
+                    {
+                        fastestLapFound = SessionStints[sessionIndex][longeststintIndexInSession].FastestLap();
+                    }
+                }
+            }
+
+            //Now analyse the list
+            float degradation = GetAverageDegratationFromStints(validStints) + (PaceParameters[PaceParameterType.FuelConsumption] * PaceParameters[PaceParameterType.FuelEffect]);
+
+            //Checks within reasonable bounds.
+            if (degradation < 0 || degradation > fastestLapFound * 0.005)
+            {
+                degradation = Data.Settings.DefaultPrimeDegradation;
+            }
+            return degradation;
+        }
+
+        /*
         private float GetOptionDegradation(List<Stint>[] SessionStints)
         {
             /*finding the option tyre degradation:
@@ -109,14 +278,14 @@ namespace StratSim.Model
              * raw delta = later lap - earlier lap
              * correct for fuel effects
              * average between sessions
-             */
+             *
 
             /*validation:
              * ignore if lap is greater than 1% of fastest lap
              * set results to default if:
              *      result is negative
              *      result is less than prime tyre degradation
-             */
+             *
 
             fastestLaps[] sessionFastestLaps = new fastestLaps[2];
             int[] stintContainingFastestLap = new int[2];
@@ -152,7 +321,7 @@ namespace StratSim.Model
                     stintIndex = 0;
                     foreach (Stint s in SessionStints[1])
                     {
-                        stintFastestLap = s.FastestLap();
+                        stintFastestLap = s.FastestLap(PaceParameters[PaceParameterType.FuelEffect] * PaceParameters[PaceParameterType.FuelConsumption]);
                         if (stintFastestLap < sessionFastestLaps[0].fastestLap)
                         {
                             sessionFastestLaps[0].fastestLap = stintFastestLap;
@@ -279,7 +448,7 @@ namespace StratSim.Model
              * find the average degradation throughout this stint
              * correct for fuel effects.
              * return default if negative
-             */
+             *
 
             int stintLength = 0;
             int stintIndex = 0;
@@ -345,7 +514,7 @@ namespace StratSim.Model
             }
 
             return primeDegradation;
-        }
+        }*/
 
         private float GetFuelEffect(List<Stint>[] SessionStints)
         {
@@ -354,7 +523,7 @@ namespace StratSim.Model
             float fuelEffect;
 
             sessionFastestLap[0] = Data.Settings.DefaultPace; //FP2
-            sessionFastestLap[1] = Data.Settings.DefaultPace; //FP3
+            sessionFastestLap[1] = Data.Settings.DefaultPace; //FP3 and qualifying
 
             try
             {
@@ -366,13 +535,16 @@ namespace StratSim.Model
                         sessionFastestLap[0] = stintFastestLap;
                 }
 
-                //Gets the fastest lap from FP3
+                //Gets the fastest lap from FP3 or qualifying (low fuel runs)
                 stintFastestLap = Data.Settings.DefaultPace;
-                foreach (Stint s in SessionStints[2])
+                foreach (List<Stint> l in new List<Stint>[] { SessionStints[2], SessionStints[3] })
                 {
-                    stintFastestLap = s.FastestLap();
-                    if (stintFastestLap < sessionFastestLap[1])
-                        sessionFastestLap[1] = stintFastestLap;
+                    foreach (Stint s in l)
+                    {
+                        stintFastestLap = s.FastestLap();
+                        if (stintFastestLap < sessionFastestLap[1])
+                            sessionFastestLap[1] = stintFastestLap;
+                    }
                 }
 
                 //Finds the difference between these two times, taking into account the track evolution
@@ -385,7 +557,7 @@ namespace StratSim.Model
             }
 
             //Checks within sensible bounds.
-            if ((fuelEffect > (sessionFastestLap[1] * 0.002)) || (fuelEffect <= 0))
+            if ((fuelEffect > (sessionFastestLap[1] * 0.005)) || (fuelEffect <= 0))
             {
                 fuelEffect = Data.Settings.DefaultFuelEffect;
             }
@@ -393,6 +565,75 @@ namespace StratSim.Model
             return fuelEffect;
         }
 
+        private float GetTyreDelta(List<Stint>[] SessionStints)
+        {
+            //Calculate difference between fastest lap excluding fastest stint, and fastest lap with fastest stint
+            //This can be done in FP2 and FP3
+
+            float fastestLapFound = 0;
+            float totalDelta = 0;
+            int deltasFound = 0;
+            float fastestStintLap = 0;
+            float secondFastestStintLap = 0;
+            int fastestStintIndex;
+            bool fastLapFound = false;
+            bool secondLapFound = false;
+            for (int sessionIndex = 1; sessionIndex < 3; sessionIndex++)
+            {
+                fastestStintIndex = -1;
+                fastestStintLap = 0;
+                //Find the fastest stint
+                for (int stintIndex = 0; stintIndex < SessionStints[sessionIndex].Count; stintIndex++)
+                {
+                    if (SessionStints[sessionIndex][stintIndex].FastestLap() < fastestStintLap || stintIndex == 0)
+                    {
+                        fastestStintLap = SessionStints[sessionIndex][stintIndex].FastestLap();
+                        fastestStintIndex = stintIndex;
+                        fastLapFound = true;
+                        if (stintIndex == 0 || fastestStintLap < fastestLapFound)
+                        {
+                            fastestLapFound = fastestStintLap;
+                        }
+                    }
+                }
+                //Now find the second fastest stint
+                for (int stintIndex = 0; stintIndex < SessionStints[sessionIndex].Count; stintIndex++)
+                {
+                    if (stintIndex != fastestStintIndex)
+                    {
+                        if (SessionStints[sessionIndex][stintIndex].FastestLap() < secondFastestStintLap || stintIndex == 0)
+                        {
+                            secondFastestStintLap = SessionStints[sessionIndex][stintIndex].FastestLap();
+                            secondLapFound = true;
+                        }
+                    }
+                }
+
+                if (fastLapFound && secondLapFound)
+                {
+                    totalDelta += fastestStintLap - secondFastestStintLap;
+                    deltasFound++;
+                }
+            }
+
+            float tyreDelta;
+            if (deltasFound > 0)
+            {
+                tyreDelta = totalDelta / deltasFound;
+                //check within sensible limits.
+                if ((tyreDelta < -(fastestStintLap * 0.02)) || (tyreDelta >= 0))
+                {
+                    tyreDelta = Data.Settings.DefaultCompoundDelta;
+                }
+            }
+            else
+            {
+                tyreDelta = Data.Settings.DefaultCompoundDelta;
+            }
+            return tyreDelta;
+        }
+
+        /*
         private float GetTyreDelta(List<Stint>[] SessionStints)
         {
             float[] sessionFastestLap = new float[2];
@@ -436,6 +677,6 @@ namespace StratSim.Model
             }
 
             return tyreDelta;
-        }
+        }*/
     }
 }

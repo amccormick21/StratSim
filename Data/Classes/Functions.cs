@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace DataSources
@@ -76,21 +77,21 @@ namespace DataSources
         /// <param name="Comparer">A comparing function for two types in the array.
         /// a > b produces an ascending sort.
         /// The comparer should not include the 'equal to' statement.</param>
-        public static void InsertionSort<T>(ref T[] array, int first, int last, Func<T,T,bool> comparer)
+        public static void InsertionSort<T>(ref T[] array, int first, int last, Func<T, T, bool> comparer)
         {
-	        int pointer;
-	        T currentValue;
+            int pointer;
+            T currentValue;
 
-	        for (int arrayPosition = first + 1; arrayPosition <= last; ++arrayPosition)
-	        {
+            for (int arrayPosition = first + 1; arrayPosition <= last; ++arrayPosition)
+            {
                 currentValue = array[arrayPosition];
-		        pointer = arrayPosition;
+                pointer = arrayPosition;
                 while ((--pointer >= 0) && !comparer(currentValue, array[pointer]))
-		        {
+                {
                     array[pointer + 1] = array[pointer];
-		        }
+                }
                 array[pointer + 1] = currentValue;
-	        }
+            }
         }
 
         /// <summary>
@@ -297,6 +298,51 @@ namespace DataSources
             }
 
             return newArray;
+        }
+
+        /// <summary>
+        /// Gets the sum of the squares of the errors in vertical placement for an array of points
+        /// </summary>
+        /// <param name="points">an [x, 2] array of (x,y) coordinate pairs</param>
+        /// <returns></returns>
+        static float ErrorSquared(float[,] points, float gradient, float intercept)
+        {
+            float total = 0;
+            float pointX, pointY, delta;
+            for (int i = 0; i < points.Length / 2; i++)
+            {
+                pointX = points[i, 0];
+                pointY = points[i, 1];
+                delta = pointY - (gradient * pointX + intercept);
+                total += (delta * delta);
+            }
+            return total;
+        }
+
+        // Find the least squares linear fit.
+        // Return the total error.
+        public static float LinearLeastSquaresFit(float[,] points, out float gradient, out float intercept)
+        {
+            // Perform the calculation.
+            // Find the values S1, Sx, Sy, Sxx, and Sxy.
+            float S1 = points.Length / 2;
+            float Sx = 0;
+            float Sy = 0;
+            float Sxx = 0;
+            float Sxy = 0;
+            for (int i = 0; i < points.Length / 2; i++)
+            {
+                Sx += points[i, 0];
+                Sy += points[i, 1];
+                Sxx += points[i, 0] * points[i, 0];
+                Sxy += points[i, 0] * points[i, 1];
+            }
+
+            // Solve for m and b.
+            gradient = (Sxy * S1 - Sx * Sy) / (Sxx * S1 - Sx * Sx);
+            intercept = (Sxy * Sx - Sy * Sxx) / (Sx * Sx - S1 * Sxx);
+
+            return (float)Math.Sqrt(ErrorSquared(points, gradient, intercept));
         }
     }
 

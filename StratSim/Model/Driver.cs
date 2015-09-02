@@ -143,8 +143,16 @@ namespace StratSim.Model
                 }
 
                 //As above for tyre type.
-                if (Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation] != Data.Settings.DefaultPrimeDegradation) { teamPrimeDeg += Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation]; nonDefaultPrime++; }
-                if (Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation] != Data.Settings.DefaultPrimeDegradation) { teamPrimeDeg += Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation]; nonDefaultPrime++; }
+                if (Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation] != Data.Settings.DefaultPrimeDegradation)
+                {
+                    teamPrimeDeg += Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation];
+                    nonDefaultPrime++;
+                }
+                if (Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation] != Data.Settings.DefaultPrimeDegradation)
+                {
+                    teamPrimeDeg += Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation];
+                    nonDefaultPrime++;
+                }
                 if (nonDefaultPrime != 0)
                 {
                     teamPrimeDeg /= nonDefaultPrime;
@@ -152,8 +160,16 @@ namespace StratSim.Model
                     Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.PrimeDegradation] = teamPrimeDeg;
                 }
 
-                if (Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation] != Data.Settings.DefaultOptionDegradation) { teamOptionDeg += Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation]; nonDefaultOption++; }
-                if (Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation] != Data.Settings.DefaultOptionDegradation) { teamOptionDeg += Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation]; nonDefaultOption++; }
+                if (Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation] != Data.Settings.DefaultOptionDegradation)
+                {
+                    teamOptionDeg += Data.Drivers[driverIndex].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation];
+                    nonDefaultOption++;
+                }
+                if (Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation] != Data.Settings.DefaultOptionDegradation)
+                {
+                    teamOptionDeg += Data.Drivers[driverIndex + 1].PaceParameters.PaceParameters[PaceParameterType.OptionDegradation];
+                    nonDefaultOption++;
+                }
                 if (nonDefaultOption != 0)
                 {
                     teamOptionDeg /= nonDefaultOption;

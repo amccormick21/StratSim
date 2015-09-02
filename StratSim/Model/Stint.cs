@@ -24,6 +24,7 @@ namespace StratSim.Model
             session = passSession;
             startLap = passStartLap;
             lapTimes = new List<float>();
+            stintLength = 0;
             modified = false;
         }
 
@@ -36,7 +37,7 @@ namespace StratSim.Model
         /// <param name="_stintLength">The number of laps in the stint</param>
         public Stint(int passStartLap, TyreType passTyreType, int _stintLength)
         {
-            session = 5;
+            session = 5; //Must be the race
             startLap = passStartLap;
             lapTimes = new List<float>();
             tyreType = passTyreType;
@@ -67,6 +68,7 @@ namespace StratSim.Model
         void AddLap(float lapTime)
         {
             lapTimes.Add(lapTime);
+            stintLength++;
         }
 
         /// <summary>
@@ -83,7 +85,6 @@ namespace StratSim.Model
             w.Write(this.tyreType);
         }
 
-        //methods
         public float TotalTime()
         {
             float totalTime = 0;
@@ -95,15 +96,99 @@ namespace StratSim.Model
             return totalTime;
         }
 
+        /// <summary>
+        /// Gets the fastest lap in a stint without adjusting for fuel usage
+        /// </summary>
+        /// <returns></returns>
         public float FastestLap()
         {
+            return FastestLap(0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Gets the adjusted fastest lap in a stint based only on fuel consumption
+        /// </summary>
+        /// <returns></returns>
+        public float FastestLap(float fuelEffectPerLap)
+        {
+            return FastestLap(fuelEffectPerLap, 0, 0, Data.Settings.TrackImprovement);
+        }
+
+        public float FastestLap(float fuelEffectPerLap, float primeTyreWear, float optionTyreWear)
+        {
+            return FastestLap(fuelEffectPerLap, primeTyreWear, optionTyreWear, Data.Settings.TrackImprovement);
+        }
+
+        /// <summary>
+        /// Gets the adjusted fastest lap in a stint, based on tyre wear and fuel consumption.
+        /// </summary>
+        /// <returns></returns>
+        public float FastestLap(float fuelEffectPerLap, float primeTyreWear, float optionTyreWear, float trackImprovementPerLap)
+        {
             float fastestLap = Data.Settings.DefaultPace;
+            float fuelEffect = fuelEffectPerLap * (lapTimes.Count - 1);
+            float tyreWearPerLap = (tyreType == TyreType.Prime ? primeTyreWear : optionTyreWear);
+            float tyreEffect = 0;
+            float trackEffect = trackImprovementPerLap * (lapTimes.Count - 1);
+            float adjustedTime;
             foreach (float l in lapTimes)
             {
-                if (l < fastestLap)
-                    fastestLap = l;
+                adjustedTime = l - fuelEffect - tyreEffect - trackImprovementPerLap;
+                fuelEffect -= fuelEffectPerLap;
+                tyreEffect += tyreWearPerLap;
+                if (adjustedTime < fastestLap)
+                    fastestLap = adjustedTime;
             }
             return fastestLap;
+        }
+
+        /// <summary>
+        /// Gets the index of the fastest lap in a stint without adjusting for fuel usage
+        /// </summary>
+        /// <returns></returns>
+        public int FastestLapIndex()
+        {
+            return FastestLapIndex(0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// Gets the index of the adjusted fastest lap in a stint based only on fuel consumption
+        /// </summary>
+        /// <returns></returns>
+        public int FastestLapIndex(float fuelEffectPerLap)
+        {
+            return FastestLapIndex(fuelEffectPerLap, 0, 0, Data.Settings.TrackImprovement);
+        }
+
+        public int FastestLapIndex(float fuelEffectPerLap, float primeTyreWear, float optionTyreWear)
+        {
+            return FastestLapIndex(fuelEffectPerLap, primeTyreWear, optionTyreWear, Data.Settings.TrackImprovement);
+        }
+
+        public int FastestLapIndex(float fuelEffectPerLap, float primeTyreWear, float optionTyreWear, float trackImprovementPerLap)
+        {
+            float fastestLap = Data.Settings.DefaultPace;
+            float fuelEffect = fuelEffectPerLap * (lapTimes.Count - 1);
+            float tyreWearPerLap = (tyreType == TyreType.Prime ? primeTyreWear : optionTyreWear);
+            float trackEffect = trackImprovementPerLap * (lapTimes.Count - 1);
+            float tyreEffect = 0;
+            float adjustedTime;
+            int lapIndex = 0;
+            int fastestLapIndex = 0;
+            foreach (float l in lapTimes)
+            {
+                adjustedTime = l - fuelEffect - tyreEffect - trackImprovementPerLap;
+                fuelEffect -= fuelEffectPerLap;
+                tyreEffect += tyreWearPerLap;
+                trackEffect -= trackImprovementPerLap;
+                if (adjustedTime < fastestLap)
+                {
+                    fastestLap = adjustedTime;
+                    fastestLapIndex = lapIndex;
+                }
+                lapIndex++;
+            }
+            return fastestLapIndex;
         }
 
         public float AverageLap()
@@ -152,7 +237,7 @@ namespace StratSim.Model
                     lap.lapTime = lapTimes[lapToAnalyse];
                     lap.lapIndex = lapToAnalyse++;
 
-                    if (lap.lapTime < fastestLap * 1.01)
+                    if (lap.lapTime < fastestLap * 1.02)
                     {
                         previousLap = currentLap;
                         currentLap = lap;
