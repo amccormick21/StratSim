@@ -130,7 +130,68 @@ namespace StratSim.View.Panels
 
         protected virtual void OnConfirmClicked()
         {
+            //Write grid information to database
+            WriteGridResultsToDatabase();
         }
+
+        protected int[] GetGridOrderFromRaceBox()
+        {
+            int driverIndexOfThisPosition;
+
+            List<int> driverIndices = new List<int>();
+            for (int i = 0; i < Data.NumberOfDrivers; i++) { driverIndices.Add(i); }
+            int[] gridOrder = new int[Data.NumberOfDrivers];
+
+            int position = 0;
+            for (position = 0; position < GridOrder.Items.Count; position++)
+            {
+                driverIndexOfThisPosition = Driver.ConvertToDriverIndex(Convert.ToString(GridOrder.Items[position]));
+                driverIndices.Remove(driverIndexOfThisPosition);
+                gridOrder[position] = driverIndexOfThisPosition;
+            }
+
+            foreach (int driverIndex in driverIndices)
+            {
+                gridOrder[position++] = driverIndex;
+            }
+
+            return gridOrder;
+        }
+
+        private void WriteGridResultsToDatabase()
+        {
+            Result[,] results = new Result[Data.NumberOfDrivers, Data.NumberOfTracks];
+            int driverIndexOfThisPosition;
+
+            List<int> driverIndices = new List<int>();
+            for (int i = 0; i < Data.NumberOfDrivers; i++) { driverIndices.Add(i); }
+            int[] gridOrder = new int[Data.NumberOfDrivers];
+
+            int position = 0;
+            for (position = 0; position < GridOrder.Items.Count; position++)
+            {
+                driverIndexOfThisPosition = Driver.ConvertToDriverIndex(Convert.ToString(GridOrder.Items[position]));
+                driverIndices.Remove(driverIndexOfThisPosition);
+                gridOrder[position] = driverIndexOfThisPosition;
+                results[driverIndexOfThisPosition, Data.RaceIndex].position = position + 1;
+                results[driverIndexOfThisPosition, Data.RaceIndex].finishState = 0;
+                results[driverIndexOfThisPosition, Data.RaceIndex].modified = true;
+            }
+
+            foreach (int driverIndex in driverIndices)
+            {
+                gridOrder[position] = driverIndex;
+                results[driverIndex, Data.RaceIndex].position = ++position;
+                results[driverIndex, Data.RaceIndex].finishState = FinishingState.DNS;
+                results[driverIndex, Data.RaceIndex].modified = true;
+            }
+
+            string filePath = GridData.GetTimingDataDirectory(Data.RaceIndex, Properties.Settings.Default.CurrentYear) + GridData.GetFileName(Session.Grid, Data.RaceIndex);
+            GridData.WriteToFile(filePath, gridOrder);
+
+            DriverResultsTableUpdater.SetResults(results, Session.Grid, Data.NumberOfDrivers, Data.NumberOfTracks, Properties.Settings.Default.CurrentYear, Driver.GetDriverIndexDictionary(), Driver.GetDriverNumberArray());
+        }
+
 
         void MoveDown5_Click(object sender, EventArgs e)
         {

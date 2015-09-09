@@ -27,10 +27,11 @@ namespace StratSim.View.Panels
 
         private string GetPositionString()
         {
+            int[] fullGridOrder = GetGridOrderFromRaceBox();
             string positionString = "";
-            foreach (object element in GridOrder.Items)
+            foreach (int driverIndex in fullGridOrder)
             {
-                positionString += Convert.ToString(Driver.ConvertToDriverIndex(Convert.ToString(element)));
+                positionString += Convert.ToString(driverIndex);
                 positionString += "\r\n";
             }
             return positionString;
