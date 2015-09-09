@@ -11,5 +11,10 @@ namespace DataSources.DataConnections
         public FinishingState finishState;
         public int position;
         public bool modified;
+
+        public override string ToString()
+        {
+            return position.ToString() + ": " + finishState.ToString() + (modified ? "(m)" : "");
+        }
     }
 }

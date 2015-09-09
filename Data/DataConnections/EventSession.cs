@@ -164,6 +164,29 @@ namespace DataSources.DataConnections
             }
         }
 
+        public static string GetSessionHeading(this Session session)
+        {
+            switch (session)
+            {
+                case Session.FP1:
+                    return "First Practice";
+                case Session.FP2:
+                    return "Second Practice";
+                case Session.FP3:
+                    return "Third Practice";
+                case Session.Qualifying:
+                    return "Qualifying Session";
+                case Session.SpeedTrap:
+                    return "Qualifying Session";
+                case Session.Grid:
+                    return "Race";
+                case Session.Race:
+                    return "Race";
+                default:
+                    return ""; //Should never be reached
+            }
+        }
+
         public static Session GetSessionFromIndex(int sessionIndex)
         {
             switch (sessionIndex)

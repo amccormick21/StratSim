@@ -82,10 +82,191 @@ namespace DataSources.DataConnections
             return result;
         }
 
-        public static void SetResults(Result[,] results, Session Session, int numberOfDrivers, int numberOfTracks, int currentYear, Dictionary<int, int> driverIndexDictionary, int[] driverNumbers)
+        private static OleDbCommand GetSQLUpdateCommand(OleDbConnection connection, Result result, Session session, int driverNumber, int trackID)
         {
+            OleDbCommand comm = connection.CreateCommand();
+            comm.CommandType = CommandType.Text;
+            string sqlStatement = "UPDATE DriverResults SET ";
+            switch (session)
+            {
+                case Session.FP1:
+                    sqlStatement += "FirstPractice=@Result ";
+                    break;
+                case Session.FP2:
+                    sqlStatement += "SecondPractice=@Result ";
+                    break;
+                case Session.FP3:
+                    sqlStatement += "ThirdPractice=@Result ";
+                    break;
+                case Session.Qualifying:
+                    sqlStatement += "QualiPosition=@Result, ";
+                    sqlStatement += "QualiFinishState=@FinishState ";
+                    comm.Parameters.AddWithValue("FinishState", Convert.ToInt32(result.finishState));
+                    break;
+                case Session.SpeedTrap:
+                    sqlStatement += "SpeedTrap=@Result ";
+                    break;
+                case Session.Grid:
+                    sqlStatement += "Grid=@Result ";
+                    break;
+                case Session.Race:
+                    sqlStatement += "Position=@Result, ";
+                    sqlStatement += "FinishState=@FinishState ";
+                    comm.Parameters.AddWithValue("FinishState", Convert.ToInt32(result.finishState));
+                    break;
+            }
+            sqlStatement += "WHERE DriverResults.DriverNumber = @DriverNumber ";
+            sqlStatement += "AND DriverResults.RaceCalendarIndex = @TrackID";
+            comm.CommandText = sqlStatement;
+            comm.Parameters.AddWithValue("Result", result.position);
+            comm.Parameters.AddWithValue("DriverNumber", driverNumber);
+            comm.Parameters.AddWithValue("TrackID", trackID);
+            return comm;
+        }
+
+        private static void UpdateRow(Result result, Session session, int driverNumber, int trackID)
+        {
+            var sqlConnectionString = Program.GetConnectionString();
+            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
+            {
+                myConn.Open();
+                OleDbCommand comm = GetSQLUpdateCommand(myConn, result, session, driverNumber, trackID);
+                comm.ExecuteNonQuery();
+            }
+        }
+
+        private static string SessionColumns(Session session)
+        {
+            string columnNames = "";
+            switch (session)
+            {
+                case Session.FP1:
+                    columnNames += "FirstPractice";
+                    break;
+                case Session.FP2:
+                    columnNames += "SecondPractice";
+                    break;
+                case Session.FP3:
+                    columnNames += "ThirdPractice";
+                    break;
+                case Session.Qualifying:
+                    columnNames += "QualiPosition, ";
+                    columnNames += "QualiFinishState";
+                    break;
+                case Session.SpeedTrap:
+                    columnNames += "SpeedTrap";
+                    break;
+                case Session.Grid:
+                    columnNames += "Grid";
+                    break;
+                case Session.Race:
+                    columnNames += "Position, ";
+                    columnNames += "FinishState";
+                    break;
+            }
+            return columnNames;
+        }
+
+        private static string SessionParameters(Result result, Session session, ref OleDbCommand command)
+        {
+            string parameters = "@Result";
+            command.Parameters.AddWithValue("Result", result.position);
+            switch (session)
+            {
+                case Session.Qualifying:
+                case Session.Race:
+                    parameters += ", @FinishState";
+                    command.Parameters.AddWithValue("FinishState", result.finishState);
+                    break;
+            }
+            return parameters;
+        }
+
+        private static OleDbCommand GetSQLInsertCommand(OleDbConnection connection, Result result, Session session, int driverNumber, int raceCalendarID, int resultID)
+        {
+            OleDbCommand comm = connection.CreateCommand();
+            comm.CommandType = CommandType.Text;
+            string sqlStatement = "INSERT INTO DriverResults (RaceCalendarIndex,DriverResultID,DriverNumber,";
+            sqlStatement += SessionColumns(session);
+            sqlStatement += ") VALUES (@CalendarIndex,@ResultID,@DriverNumber,";
+            sqlStatement += SessionParameters(result, session, ref comm);
+            sqlStatement += ")";
+            comm.CommandText = sqlStatement;
+            comm.Parameters.AddWithValue("ResultID", resultID);
+            comm.Parameters.AddWithValue("DriverNumber", driverNumber);
+            comm.Parameters.AddWithValue("CalendarIndex", raceCalendarID);
+            return comm;
+        }
+
+        private static void InsertRow(Result result, Session session, int driverNumber, int calendarID, int resultID)
+        {
+            var sqlConnectionString = Program.GetConnectionString();
+            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
+            {
+                myConn.Open();
+                OleDbCommand comm = GetSQLInsertCommand(myConn, result, session, driverNumber, calendarID, resultID);
+                comm.ExecuteNonQuery();
+            }
+        }
+
+        private static int GetTrackID(int trackIndex, int currentYear)
+        {
+            int calendarID;
+            var sqlConnectionString = Program.GetConnectionString();
+            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
+            {
+                myConn.Open();
+                OleDbCommand comm = myConn.CreateCommand();
+                comm.CommandType = CommandType.Text;
+                comm.CommandText = "SELECT RaceCalendar.RaceCalendarID FROM RaceCalendar WHERE [Round] = @RaceRound AND TrackYear = @RaceYear";
+                comm.Parameters.AddWithValue("RaceRound", trackIndex + 1);
+                comm.Parameters.AddWithValue("RaceYear", currentYear);
+                calendarID = (int)comm.ExecuteScalar();
+            }
+            return calendarID;
+        }
+
+        private static int GetResultID(int numberOfDrivers, int numberOfTracks, int year, int driverIndex, int trackIndex)
+        {
+            //TODO: check number of drivers in every previous year.
+            int resultID = (year - 2014) * 19 * 22;
+            resultID += trackIndex * numberOfDrivers;
+            resultID += driverIndex + 1;
+            return resultID;
+        }
+
+        public static void SetResults(Result[,] results, Session session, int numberOfDrivers, int numberOfTracks, int currentYear, Dictionary<int, int> driverIndexDictionary, int[] driverNumbers)
+        {
+            int trackCalendarID, resultID;
+            for (int trackIndex = 0; trackIndex < numberOfTracks; trackIndex++)
+            {
+                trackCalendarID = GetTrackID(trackIndex, currentYear);
+                for (int driverIndex = 0; driverIndex < numberOfDrivers; driverIndex++)
+                {
+                    //Set the result ID
+                    resultID = GetResultID(numberOfDrivers, numberOfTracks, currentYear, driverIndex, trackIndex);
+
+                    //If any change needs to be made at all
+                    if (results[driverIndex, trackIndex].modified)
+                    {
+                        //Run a query to check the row exists
+                        if (DriverResultsRowExists(resultID))
+                        {
+                            //The record exists and has been loaded
+                            UpdateRow(results[driverIndex, trackIndex], session, driverNumbers[driverIndex], trackCalendarID);
+                        }
+                        else
+                        {
+                            //The record does not exist and must be created
+                            InsertRow(results[driverIndex, trackIndex], session, driverNumbers[driverIndex], trackCalendarID, resultID);
+                        }
+                    }
+                }
+            }
+
+            /*
             //TODO: return records via query and use update/insert
-            var stratSimDataSet = new StratSimDataSet();
+                var stratSimDataSet = new StratSimDataSet();
             var driverResultsTableAdapter = new DriverResultsTableAdapter();
             var raceCalendarTableAdapter = new RaceCalendarTableAdapter();
             driverResultsTableAdapter.Fill(stratSimDataSet.DriverResults);
@@ -108,7 +289,7 @@ namespace DataSources.DataConnections
                     if (results[databaseDriverIndex, databaseTrackIndex].modified)
                     {
                         rowExists[databaseDriverIndex, databaseTrackIndex] = true;
-                        ModifyRow(ref row, results[databaseDriverIndex, databaseTrackIndex], Session);
+                        ModifyRow(ref row, results[databaseDriverIndex, databaseTrackIndex], session);
                     }
                     driverResultsTableAdapter.Update(row);
                 }
@@ -128,15 +309,32 @@ namespace DataSources.DataConnections
                         row.DriverNumber = (short)driverNumber;
                         row.RaceCalendarIndex = (short)RaceCalendarConnection.GetRaceCalendarID(raceIndex + 1, currentYear);
                         row.DriverResultID = (short)(stratSimDataSet.DriverResults.Count + 1);
-                        ModifyRow(ref row, results[driverIndex, raceIndex], Session);
+                        ModifyRow(ref row, results[driverIndex, raceIndex], session);
                         stratSimDataSet.DriverResults.AddDriverResultsRow(row);
                         driverResultsTableAdapter.Update(row);
                     }
                 }
             }
-
+            */
             if (DatabaseModified != null)
-                DatabaseModified(null, new ResultsUpdatedEventArgs(results, Session));
+                DatabaseModified(null, new ResultsUpdatedEventArgs(results, session));
+        }
+
+        private static bool DriverResultsRowExists(int resultID)
+        {
+            //Check the number of responses to a query.
+            bool rowExists = false;
+            var sqlConnectionString = Program.GetConnectionString();
+            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
+            {
+                myConn.Open();
+                OleDbCommand comm = myConn.CreateCommand();
+                comm.CommandType = CommandType.Text;
+                comm.CommandText = "SELECT DriverNumber FROM DriverResults WHERE [DriverResultID] = @ResultID";
+                comm.Parameters.AddWithValue("ResultID", resultID);
+                rowExists = (comm.ExecuteScalar() != null);
+            }
+            return rowExists;
         }
 
         /// <summary>

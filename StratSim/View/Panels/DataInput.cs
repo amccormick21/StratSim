@@ -74,7 +74,8 @@ namespace StratSim.View.Panels
         {
             //Get text from the PDF and process this text.
             var timingFileText = GetTextFromSelectedPDFFile((Session)SelectSession.SelectedIndex, SelectRace.SelectedIndex, SelectRace.Text);
-            ProcessTimingData(timingFileText);
+            if (timingFileText != "")
+                ProcessTimingData(timingFileText);
         }
 
         void btnSelectText_Click(object sender, EventArgs e)
@@ -249,7 +250,7 @@ namespace StratSim.View.Panels
         {
             string fileText = "";
 
-            if (session == Session.Grid)
+            if (session == Session.Grid && Properties.Settings.Default.CurrentYear != 2015)
             {
                 fileText = TryGetGridData(Properties.Settings.Default.CurrentYear, raceIndex);
             }
@@ -274,13 +275,47 @@ namespace StratSim.View.Panels
                 {
                     try
                     {
+                        //Try downloading from the old location
                         using (var client = new WebClient())
                         {
                             client.DownloadFile(session.GetPDFUrl(raceIndex, Data.Tracks[raceIndex].abbreviation, Properties.Settings.Default.CurrentYear), fileLocation);
                         }
                     }
                     catch (InvalidOperationException)
-                    { }
+                    {
+                        try
+                        {
+                            string source;
+                            WebRequest req;
+                            try
+                            {
+                                req = WebRequest.Create(GetDataURL(raceIndex, Properties.Settings.Default.CurrentYear, true));
+                                req.Method = "GET";
+                                using (StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream()))
+                                {
+                                    source = reader.ReadToEnd();
+                                }
+                            }
+                            catch (WebException)
+                            {
+                                req = WebRequest.Create(GetDataURL(raceIndex, Properties.Settings.Default.CurrentYear, false));
+                                req.Method = "GET";
+                                using (StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream()))
+                                {
+                                    source = reader.ReadToEnd();
+                                }
+                            }
+                            string url = GetPdfUrlFromHtmlParse(source, session);
+                            using (var client = new WebClient())
+                            {
+                                client.DownloadFile(url, fileLocation);
+                            }
+                        }
+                        catch (InvalidOperationException)
+                        {
+
+                        }
+                    }
                 }
 
                 if (File.Exists(fileLocation))
@@ -290,6 +325,46 @@ namespace StratSim.View.Panels
                 }
             }
             return fileText;
+        }
+
+        private string GetPdfUrlFromHtmlParse(string source, Session session)
+        {
+            //Find the start of the links to the timing data
+            int timingDataStartIndex = source.IndexOf(@">TIMING INFORMATION<");
+            int timingDataEndIndex = source.IndexOf(@">TECHNICAL REPORTS<", timingDataStartIndex);
+            source = source.Substring(timingDataStartIndex, timingDataEndIndex - timingDataStartIndex);
+            string sessionName = session.GetSessionHeading();
+            int sessionDataStartIndex = source.IndexOf(sessionName);
+            string fileName = session.GetTimingDataType().GetPDFFileName(session);
+            string linkText = source.Substring(sessionDataStartIndex, source.Length - sessionDataStartIndex);
+            int startOfLinkIdentifier = linkText.IndexOf(fileName);
+            linkText = linkText.Substring(0, startOfLinkIdentifier);
+            int startOfLink = linkText.LastIndexOf(" href=\"") + 8;
+            int endOfLink = linkText.IndexOf('"', startOfLink);
+            string link = linkText.Substring(startOfLink, endOfLink-startOfLink);
+            link = "http://www.fia.com/" + link;
+            return link;
+        }
+
+        private string GetDataURL(int raceIndex, int currentYear, bool digitOne)
+        {
+            if (currentYear == 2014)
+                throw new InvalidOperationException("Cannot retrieve grid data for 2014");
+
+            //Default URL:
+            string url = "http://www.fia.com/events/fia-formula-" + (digitOne ? "1" : "one") + "-world-championship/season-";
+            url += currentYear.ToString();
+            url += @"/event-timing-information";
+            if (currentYear == 2015)
+            {
+                //If race index is 0, this is correct. Spain (4) is also weird for 2015
+                if (raceIndex != 0 && raceIndex != 4)
+                {
+                    //Otherwise, add the index
+                    url += "-" + (raceIndex - 1).ToString();
+                }
+            }
+            return url;
         }
 
         private string TryGetGridData(int currentYear, int roundIndex)
