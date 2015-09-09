@@ -19,8 +19,8 @@ namespace DataSources.DataConnections
                 myConn.Open();
                 string commandText = "SELECT DriverNumber, [Round], FirstPractice, SecondPractice, ThirdPractice, QualiPosition, QualiFinishState, SpeedTrap, Grid, [Position], FinishState " +
                     "FROM DriverResults, RaceCalendar " +
-                    "WHERE RaceCalendarID = RaceCalendarIndex " +
-                    "AND TrackYear = @RaceYear";
+                    "WHERE DriverResults.RaceCalendarIndex = RaceCalendar.RaceCalendarID " +
+                    "AND RaceCalendar.TrackYear = @RaceYear";
                 OleDbCommand comm = myConn.CreateCommand();
                 comm.CommandText = commandText;
                 comm.Parameters.AddWithValue("RaceYear", currentYear);
@@ -87,6 +87,7 @@ namespace DataSources.DataConnections
             OleDbCommand comm = connection.CreateCommand();
             comm.CommandType = CommandType.Text;
             string sqlStatement = "UPDATE DriverResults SET ";
+            comm.Parameters.AddWithValue("Result", result.position);
             switch (session)
             {
                 case Session.FP1:
@@ -118,21 +119,15 @@ namespace DataSources.DataConnections
             sqlStatement += "WHERE DriverResults.DriverNumber = @DriverNumber ";
             sqlStatement += "AND DriverResults.RaceCalendarIndex = @TrackID";
             comm.CommandText = sqlStatement;
-            comm.Parameters.AddWithValue("Result", result.position);
             comm.Parameters.AddWithValue("DriverNumber", driverNumber);
             comm.Parameters.AddWithValue("TrackID", trackID);
             return comm;
         }
 
-        private static void UpdateRow(Result result, Session session, int driverNumber, int trackID)
+        private static void UpdateRow(OleDbConnection myConn, Result result, Session session, int driverNumber, int trackID)
         {
-            var sqlConnectionString = Program.GetConnectionString();
-            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
-            {
-                myConn.Open();
-                OleDbCommand comm = GetSQLUpdateCommand(myConn, result, session, driverNumber, trackID);
-                comm.ExecuteNonQuery();
-            }
+            OleDbCommand comm = GetSQLUpdateCommand(myConn, result, session, driverNumber, trackID);
+            comm.ExecuteNonQuery();
         }
 
         private static string SessionColumns(Session session)
@@ -189,40 +184,30 @@ namespace DataSources.DataConnections
             string sqlStatement = "INSERT INTO DriverResults (RaceCalendarIndex,DriverResultID,DriverNumber,";
             sqlStatement += SessionColumns(session);
             sqlStatement += ") VALUES (@CalendarIndex,@ResultID,@DriverNumber,";
+            comm.Parameters.AddWithValue("CalendarIndex", raceCalendarID);
+            comm.Parameters.AddWithValue("ResultID", resultID);
+            comm.Parameters.AddWithValue("DriverNumber", driverNumber);
             sqlStatement += SessionParameters(result, session, ref comm);
             sqlStatement += ")";
             comm.CommandText = sqlStatement;
-            comm.Parameters.AddWithValue("ResultID", resultID);
-            comm.Parameters.AddWithValue("DriverNumber", driverNumber);
-            comm.Parameters.AddWithValue("CalendarIndex", raceCalendarID);
             return comm;
         }
 
-        private static void InsertRow(Result result, Session session, int driverNumber, int calendarID, int resultID)
+        private static void InsertRow(OleDbConnection myConn, Result result, Session session, int driverNumber, int calendarID, int resultID)
         {
-            var sqlConnectionString = Program.GetConnectionString();
-            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
-            {
-                myConn.Open();
-                OleDbCommand comm = GetSQLInsertCommand(myConn, result, session, driverNumber, calendarID, resultID);
-                comm.ExecuteNonQuery();
-            }
+            OleDbCommand comm = GetSQLInsertCommand(myConn, result, session, driverNumber, calendarID, resultID);
+            comm.ExecuteNonQuery();
         }
 
-        private static int GetTrackID(int trackIndex, int currentYear)
+        private static int GetTrackID(OleDbConnection myConn, int trackIndex, int currentYear)
         {
             int calendarID;
-            var sqlConnectionString = Program.GetConnectionString();
-            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
-            {
-                myConn.Open();
-                OleDbCommand comm = myConn.CreateCommand();
-                comm.CommandType = CommandType.Text;
-                comm.CommandText = "SELECT RaceCalendar.RaceCalendarID FROM RaceCalendar WHERE [Round] = @RaceRound AND TrackYear = @RaceYear";
-                comm.Parameters.AddWithValue("RaceRound", trackIndex + 1);
-                comm.Parameters.AddWithValue("RaceYear", currentYear);
-                calendarID = (int)comm.ExecuteScalar();
-            }
+            OleDbCommand comm = myConn.CreateCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "SELECT RaceCalendar.RaceCalendarID FROM RaceCalendar WHERE [Round] = @RaceRound AND TrackYear = @RaceYear";
+            comm.Parameters.AddWithValue("RaceRound", trackIndex + 1);
+            comm.Parameters.AddWithValue("RaceYear", currentYear);
+            calendarID = (int)comm.ExecuteScalar();
             return calendarID;
         }
 
@@ -238,27 +223,32 @@ namespace DataSources.DataConnections
         public static void SetResults(Result[,] results, Session session, int numberOfDrivers, int numberOfTracks, int currentYear, Dictionary<int, int> driverIndexDictionary, int[] driverNumbers)
         {
             int trackCalendarID, resultID;
-            for (int trackIndex = 0; trackIndex < numberOfTracks; trackIndex++)
+            var sqlConnectionString = Program.GetConnectionString();
+            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
             {
-                trackCalendarID = GetTrackID(trackIndex, currentYear);
-                for (int driverIndex = 0; driverIndex < numberOfDrivers; driverIndex++)
+                myConn.Open();
+                for (int trackIndex = 0; trackIndex < numberOfTracks; trackIndex++)
                 {
-                    //Set the result ID
-                    resultID = GetResultID(numberOfDrivers, numberOfTracks, currentYear, driverIndex, trackIndex);
-
-                    //If any change needs to be made at all
-                    if (results[driverIndex, trackIndex].modified)
+                    trackCalendarID = GetTrackID(myConn, trackIndex, currentYear);
+                    for (int driverIndex = 0; driverIndex < numberOfDrivers; driverIndex++)
                     {
-                        //Run a query to check the row exists
-                        if (DriverResultsRowExists(resultID))
+                        //Set the result ID
+                        resultID = GetResultID(numberOfDrivers, numberOfTracks, currentYear, driverIndex, trackIndex);
+
+                        //If any change needs to be made at all
+                        if (results[driverIndex, trackIndex].modified)
                         {
-                            //The record exists and has been loaded
-                            UpdateRow(results[driverIndex, trackIndex], session, driverNumbers[driverIndex], trackCalendarID);
-                        }
-                        else
-                        {
-                            //The record does not exist and must be created
-                            InsertRow(results[driverIndex, trackIndex], session, driverNumbers[driverIndex], trackCalendarID, resultID);
+                            //Run a query to check the row exists
+                            if (DriverResultsRowExists(myConn, resultID))
+                            {
+                                //The record exists and has been loaded
+                                UpdateRow(myConn, results[driverIndex, trackIndex], session, driverNumbers[driverIndex], trackCalendarID);
+                            }
+                            else
+                            {
+                                //The record does not exist and must be created
+                                InsertRow(myConn, results[driverIndex, trackIndex], session, driverNumbers[driverIndex], trackCalendarID, resultID);
+                            }
                         }
                     }
                 }
@@ -320,20 +310,16 @@ namespace DataSources.DataConnections
                 DatabaseModified(null, new ResultsUpdatedEventArgs(results, session));
         }
 
-        private static bool DriverResultsRowExists(int resultID)
+        private static bool DriverResultsRowExists(OleDbConnection myConn, int resultID)
         {
             //Check the number of responses to a query.
             bool rowExists = false;
             var sqlConnectionString = Program.GetConnectionString();
-            using (OleDbConnection myConn = new OleDbConnection(sqlConnectionString))
-            {
-                myConn.Open();
-                OleDbCommand comm = myConn.CreateCommand();
-                comm.CommandType = CommandType.Text;
-                comm.CommandText = "SELECT DriverNumber FROM DriverResults WHERE [DriverResultID] = @ResultID";
-                comm.Parameters.AddWithValue("ResultID", resultID);
-                rowExists = (comm.ExecuteScalar() != null);
-            }
+            OleDbCommand comm = myConn.CreateCommand();
+            comm.CommandType = CommandType.Text;
+            comm.CommandText = "SELECT DriverNumber FROM DriverResults WHERE [DriverResultID] = @ResultID";
+            comm.Parameters.AddWithValue("ResultID", resultID);
+            rowExists = (comm.ExecuteScalar() != null);
             return rowExists;
         }
 

@@ -78,12 +78,6 @@ namespace StratSim.View.Panels
                 ProcessTimingData(timingFileText);
         }
 
-        void btnSelectText_Click(object sender, EventArgs e)
-        {
-            var dataFromClipboard = Clipboard.GetText();
-            ProcessTimingData(dataFromClipboard);
-        }
-
         private void ProcessTimingData(string timingFileContent)
         {
             Session session = (Session)SelectSession.SelectedIndex;
@@ -145,7 +139,7 @@ namespace StratSim.View.Panels
             SelectText.Size = btnDefault;
             SelectText.Text = "Confirm data entry";
             SelectText.FlatStyle = global::MyFlowLayout.Properties.Settings.Default.FlatStyle;
-            SelectText.Click += btnSelectText_Click;
+            //SelectText.Click += btnSelectText_Click;
             SelectText.Visible = true;
             this.Controls.Add(SelectText);
 
@@ -285,35 +279,12 @@ namespace StratSim.View.Panels
                     {
                         try
                         {
-                            string source;
-                            WebRequest req;
-                            try
-                            {
-                                req = WebRequest.Create(GetDataURL(raceIndex, Properties.Settings.Default.CurrentYear, true));
-                                req.Method = "GET";
-                                using (StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream()))
-                                {
-                                    source = reader.ReadToEnd();
-                                }
-                            }
-                            catch (WebException)
-                            {
-                                req = WebRequest.Create(GetDataURL(raceIndex, Properties.Settings.Default.CurrentYear, false));
-                                req.Method = "GET";
-                                using (StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream()))
-                                {
-                                    source = reader.ReadToEnd();
-                                }
-                            }
-                            string url = GetPdfUrlFromHtmlParse(source, session);
-                            using (var client = new WebClient())
-                            {
-                                client.DownloadFile(url, fileLocation);
-                            }
+                            //Download by parsing the web page
+                            DownloadFileFromWebPage(session, raceIndex, fileLocation);
                         }
                         catch (InvalidOperationException)
                         {
-
+                            Functions.StartDialog("File could not be found. Try downloading the file manually.", "File Not Found");
                         }
                     }
                 }
@@ -325,6 +296,36 @@ namespace StratSim.View.Panels
                 }
             }
             return fileText;
+        }
+
+        private void DownloadFileFromWebPage(Session session, int raceIndex, string fileLocation)
+        {
+            string source;
+            WebRequest req;
+            try
+            {
+                req = WebRequest.Create(GetDataURL(raceIndex, Properties.Settings.Default.CurrentYear, true));
+                req.Method = "GET";
+                using (StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream()))
+                {
+                    source = reader.ReadToEnd();
+                }
+            }
+            catch (WebException)
+            {
+                //Sometimes the URL has been changed
+                req = WebRequest.Create(GetDataURL(raceIndex, Properties.Settings.Default.CurrentYear, false));
+                req.Method = "GET";
+                using (StreamReader reader = new StreamReader(req.GetResponse().GetResponseStream()))
+                {
+                    source = reader.ReadToEnd();
+                }
+            }
+            string url = GetPdfUrlFromHtmlParse(source, session);
+            using (var client = new WebClient())
+            {
+                client.DownloadFile(url, fileLocation);
+            }
         }
 
         private string GetPdfUrlFromHtmlParse(string source, Session session)
@@ -360,8 +361,11 @@ namespace StratSim.View.Panels
                 //If race index is 0, this is correct. Spain (4) is also weird for 2015
                 if (raceIndex != 0 && raceIndex != 4)
                 {
-                    //Otherwise, add the index
-                    url += "-" + (raceIndex - 1).ToString();
+                    //Race index is offset by -1 up to the german grand prix (race index 9)
+                    if (raceIndex < 9)
+                        url += "-" + (raceIndex - 1).ToString();
+                    else
+                        url += "-" + raceIndex.ToString();
                 }
             }
             return url;

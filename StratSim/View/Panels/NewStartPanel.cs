@@ -313,6 +313,14 @@ namespace StratSim.View.Panels
             Properties.Settings.Default.CurrentYear = Convert.ToInt32(YearSelectBox.SelectedItem);
             //Re-initialise the tracks and drivers
             Program.SetupStaticClasses();
+            //Re-populate the race select box
+            RaceSelectBox.SelectedIndexChanged -= RaceSelectBox_SelectedIndexChanged;
+            RaceSelectBox.Items.Clear();
+            foreach (Track t in Data.Tracks)
+            {
+                RaceSelectBox.Items.Add(t.name);
+            }
+            RaceSelectBox.SelectedIndexChanged += RaceSelectBox_SelectedIndexChanged;
         }
         void PPFromRace_Click(object sender, EventArgs e)
         {

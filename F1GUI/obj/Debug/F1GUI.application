@@ -7,14 +7,14 @@
     <framework targetVersion="4.5" profile="Full" supportedRuntime="4.0.30319" />
   </compatibleFrameworks>
   <dependency>
-    <dependentAssembly dependencyType="install" codebase="F1GUI.exe.manifest" size="24271">
+    <dependentAssembly dependencyType="install" codebase="F1GUI.exe.manifest" size="24273">
       <assemblyIdentity name="F1GUI.exe" version="1.0.0.1" publicKeyToken="0000000000000000" language="neutral" processorArchitecture="msil" type="win32" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>0HhvPxb5EQgaU/t9EvWkjG6tJoNjxBh+11EYhAiaFeY=</dsig:DigestValue>
+        <dsig:DigestValue>fTef4dC2rJutx0tEmX3LCml2iS2Eh3RL7Rxi1lnp1Oo=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

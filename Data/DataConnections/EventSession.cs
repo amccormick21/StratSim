@@ -179,7 +179,7 @@ namespace DataSources.DataConnections
                 case Session.SpeedTrap:
                     return "Qualifying Session";
                 case Session.Grid:
-                    return "Race";
+                    return "Qualifying Session";
                 case Session.Race:
                     return "Race";
                 default:

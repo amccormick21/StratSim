@@ -71,7 +71,7 @@ namespace StratSim.Model.Files
                 fastestLaps[driverIndex].value = GetFastestLapFromSessionData(DriverWeekendStints[driverIndex]);
             }
 
-            Functions.QuickSort<DriverTimingDataElement>(ref fastestLaps, 0, fastestLaps.Length - 1, (a, b) => { return (a.value > b.value); });
+            Functions.QuickSort(ref fastestLaps, 0, fastestLaps.Length - 1, (a, b) => { return (a.value > b.value); });
 
             for (int position = 0; position < Data.NumberOfDrivers; position++)
             {

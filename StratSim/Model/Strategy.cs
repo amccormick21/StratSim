@@ -250,7 +250,7 @@ namespace StratSim.Model
 
             //Sort pit stops
             int[] pitStopList = pitStops.ToArray<int>();
-            Functions.QuickSort<int>(ref pitStopList, 0, pitStopList.Length - 1, ((a, b) => a > b));
+            Functions.QuickSort(ref pitStopList, 0, pitStopList.Length - 1, ((a, b) => a > b));
             pitStops = new List<int>(pitStopList);
         }
 
@@ -288,8 +288,8 @@ namespace StratSim.Model
             float delta = PaceParameters.PaceParameters[PaceParameterType.TyreDelta];
             float optimumLength = 0;
 
-            optimumLength += (l * optionD / (float)optionStints) + (delta) + (primeD / 2) - (optionD / 2);
-            optimumLength /= ((primeD) + (optionD * (float)primeStints / (float)optionStints));
+            optimumLength += (l * optionD / optionStints) + (delta) + (primeD / 2) - (optionD / 2);
+            optimumLength /= ((primeD) + (optionD * primeStints / optionStints));
 
             return optimumLength;
         }

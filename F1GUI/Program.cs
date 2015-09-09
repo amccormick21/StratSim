@@ -30,9 +30,9 @@ namespace F1GUI
             MainForms[0].Show();
 
             //TeamStats:
-            //MainForms.AddForm(TeamStats.Program.StartProject());
-            //((TeamStatsFormIOController)MainForms[1].IOController).ShowChampionshipsPanel();
-            //MainForms[1].Show();
+            MainForms.AddForm(TeamStats.Program.StartProject());
+            ((TeamStatsFormIOController)MainForms[1].IOController).ShowChampionshipsPanel();
+            MainForms[1].Show();
 
             Application.Run();
         }

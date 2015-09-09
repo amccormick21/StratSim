@@ -79,25 +79,25 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="DataSources.exe" size="215552">
-      <assemblyIdentity name="DataSources" version="1.0.5730.2460" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="DataSources" version="1.0.5730.24022" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>77BEPNE+6eQWDRYsZHeoaEfHaWgmmsy87qKs6RNdzOY=</dsig:DigestValue>
+        <dsig:DigestValue>AyKV3xVz+IHFWzjksvKxYpb8mV14iAbFHmrKEjX0RHU=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="F1GUI.exe" size="6144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="F1GUI.exe" size="6656">
       <assemblyIdentity name="F1GUI" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>vPHYGy3jgi/xfsY4VpIC+I8lco56Tt40SAG9CYIMxJY=</dsig:DigestValue>
+        <dsig:DigestValue>2pqXKrttGdGg0oIK5kl1kFJhATomq7TYsk8M965OF94=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -402,14 +402,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StratSim.exe" size="3179008">
-      <assemblyIdentity name="StratSim" version="3.0.5730.3172" language="neutral" processorArchitecture="msil" />
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="StratSim.exe" size="3179520">
+      <assemblyIdentity name="StratSim" version="3.0.5730.24024" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>SgUAg1a4ZyDRk1KafL2U3FoVumUjeyxaEqQ62B0bSQ4=</dsig:DigestValue>
+        <dsig:DigestValue>lPWH1dh6T+zqEyPQoLvue9yjMP+4L/BRlaL3xyeC2eY=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -421,7 +421,7 @@
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>y2FI70qKazdYBAd3wfcz2N95O5ozB94ahrg8wD0WPkA=</dsig:DigestValue>
+        <dsig:DigestValue>lmIyUf7af3R/QNQuWuuIhwxwlJHXEzFR4rlhZGHduZI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
