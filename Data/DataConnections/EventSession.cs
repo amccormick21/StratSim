@@ -15,7 +15,8 @@ namespace DataSources.DataConnections
         Qualifying,
         SpeedTrap,
         Grid,
-        Race
+        Race,
+        History
     }
 
     public static class SessionExtensionMethods
@@ -37,6 +38,7 @@ namespace DataSources.DataConnections
                 case Session.Grid:
                     return 3;
                 case Session.Race:
+                case Session.History:
                     return 4;
                 default:
                     return -1; //Should never be reached
@@ -48,19 +50,17 @@ namespace DataSources.DataConnections
             switch (session)
             {
                 case Session.FP1:
-                    return TimingDataType.LapTimeData;
                 case Session.FP2:
-                    return TimingDataType.LapTimeData;
                 case Session.FP3:
-                    return TimingDataType.LapTimeData;
                 case Session.Qualifying:
+                case Session.Race:
                     return TimingDataType.LapTimeData;
                 case Session.SpeedTrap:
                     return TimingDataType.SpeedData;
                 case Session.Grid:
                     return TimingDataType.GridData;
-                case Session.Race:
-                    return TimingDataType.LapTimeData;
+                case Session.History:
+                    return TimingDataType.HistoryData;
                 default:
                     return 0; //Should never be reached
             }
@@ -83,12 +83,11 @@ namespace DataSources.DataConnections
                 case Session.FP3:
                     return "P3";
                 case Session.Qualifying:
-                    return "Q0";
                 case Session.SpeedTrap:
-                    return "Q0";
                 case Session.Grid:
                     return "Q0";
                 case Session.Race:
+                case Session.History:
                     return "R0";
                 default:
                     return ""; //Should never be reached
@@ -175,12 +174,11 @@ namespace DataSources.DataConnections
                 case Session.FP3:
                     return "Third Practice";
                 case Session.Qualifying:
-                    return "Qualifying Session";
                 case Session.SpeedTrap:
-                    return "Qualifying Session";
                 case Session.Grid:
                     return "Qualifying Session";
                 case Session.Race:
+                case Session.History:
                     return "Race";
                 default:
                     return ""; //Should never be reached

@@ -14,10 +14,11 @@ namespace DataSources
         /// </summary>
         /// <typeparam name="T">The type of elements in the list</typeparam>
         /// <param name="comparer">Use a > b for an ascending list.</param>
-        public static void Sort<T>(this List<T> List, Func<T, T, bool> comparer)
+        public static List<T> Sort<T>(this List<T> List, Func<T, T, bool> comparer)
         {
-            T[] Array = List.ToArray();
-            Array.Sort<T>(comparer);
+            T[] array = List.ToArray();
+            array.Sort<T>(comparer);
+            return new List<T>(array);
         }
 
         /// <summary>

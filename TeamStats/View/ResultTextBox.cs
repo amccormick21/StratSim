@@ -11,7 +11,7 @@ namespace TeamStats.View
 {
     class ResultTextBox : TableTextBox
     {
-        static Color[] finishStateColours = { Color.White, Color.Yellow, Color.LightGray, Color.DarkGray, Color.Gray };
+        static Color[] finishStateColours = { Color.White, Color.Yellow, Color.LightGray, Color.DarkGray, Color.Gray, Color.LightBlue };
         ContextMenuStrip thisContextMenu;
 
         public FinishingState FinishingState { get; private set; }

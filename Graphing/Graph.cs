@@ -11,14 +11,15 @@ namespace Graphing
     public class Graph : Panel
     {
         protected static Padding graphPadding = new Padding(20, 10, 20, 10);
+        protected Point latestClickLocation;
 
-        axisParameters horizontalAxis, verticalAxis;
+        AxisParameters horizontalAxis, verticalAxis;
         protected bool AxesUserModified { get; set; }
 
         Rectangle graphArea;
 
-        public event EventHandler<axisParameters> HorizontalAxisModified;
-        public axisParameters HorizontalAxis
+        public event EventHandler<AxisParameters> HorizontalAxisModified;
+        public AxisParameters HorizontalAxis
         {
             get { return horizontalAxis; }
             set
@@ -29,8 +30,8 @@ namespace Graphing
             }
         }
 
-        public event EventHandler<axisParameters> VerticalAxisModified;
-        public axisParameters VerticalAxis
+        public event EventHandler<AxisParameters> VerticalAxisModified;
+        public AxisParameters VerticalAxis
         {
             get { return verticalAxis; }
             set
@@ -52,6 +53,7 @@ namespace Graphing
             this.Height = 100;
             traces = new List<GraphLine>();
             originalTraces = new List<GraphLine>();
+            SetupContextMenu();
             VerticalAxisModified += Graph_VerticalAxisModified;
             HorizontalAxisModified += Graph_HorizontalAxisModified;
             Resize += Graph_Resize;
@@ -66,9 +68,8 @@ namespace Graphing
         {
             if (e.Button == MouseButtons.Right)
             {
-                DataPoint clickData = GetPointData(e.Location);
-                if (GraphClicked != null)
-                    GraphClicked(this, clickData);
+                latestClickLocation = e.Location;
+                this.ContextMenuStrip.Show(e.Location);
             }
         }
 
@@ -77,14 +78,33 @@ namespace Graphing
             SetGraphArea();
         }
 
-        void Graph_HorizontalAxisModified(object sender, axisParameters e)
+        void Graph_HorizontalAxisModified(object sender, AxisParameters e)
         {
             Invalidate();
         }
 
-        void Graph_VerticalAxisModified(object sender, axisParameters e)
+        void Graph_VerticalAxisModified(object sender, AxisParameters e)
         {
             Invalidate();
+        }
+
+        protected virtual void SetupContextMenu()
+        {
+            var menuStrip = new ContextMenuStrip();
+            var button = new ToolStripButton("Add Action");
+            button.Click += Action_Click;
+            menuStrip.Items.Add(button);
+            this.ContextMenuStrip = menuStrip;
+        }
+
+        private void Action_Click(object sender, EventArgs e)
+        {
+            if (latestClickLocation != null)
+            {
+                DataPoint clickData = GetPointData(latestClickLocation);
+                if (GraphClicked != null)
+                    GraphClicked(this, clickData);
+            }
         }
 
         public void SetTraces(ICollection<GraphLine> traces)
@@ -143,12 +163,12 @@ namespace Graphing
             return bestTrace;
         }
 
-        public void SetHorizontalAxis(axisParameters axis)
+        public void SetHorizontalAxis(AxisParameters axis)
         {
             this.horizontalAxis = axis;
             AxesUserModified = true;
         }
-        public void SetVerticalAxis(axisParameters axis)
+        public void SetVerticalAxis(AxisParameters axis)
         {
             this.verticalAxis = axis;
             AxesUserModified = true;
@@ -214,7 +234,7 @@ namespace Graphing
             }
         }
 
-        public void SetupAxes(axisParameters xAxis, axisParameters yAxis)
+        public void SetupAxes(AxisParameters xAxis, AxisParameters yAxis)
         {
             horizontalAxis = xAxis;
             verticalAxis = yAxis;
@@ -222,14 +242,14 @@ namespace Graphing
 
         public void SetupAxes(int xValues, double xStart, int yValues, double yStart)
         {
-            horizontalAxis = new axisParameters()
+            horizontalAxis = new AxisParameters()
             {
                 axisLabelSpacing = (int)(xValues * 20 / (double)graphArea.Width),
                 baseOffset = 0,
                 scaleFactor = graphArea.Width / (double)xValues,
                 startLocation = (int)(xStart * graphArea.Width) + graphArea.Left
             };
-            verticalAxis = new axisParameters()
+            verticalAxis = new AxisParameters()
             {
                 axisLabelSpacing = (int)(yValues * 20 / (double)graphArea.Height),
                 baseOffset = 0,
@@ -246,7 +266,7 @@ namespace Graphing
                 if (traces.Count == 0)
                 {
                     //No traces to use for scaling
-                    horizontalAxis = verticalAxis = new axisParameters()
+                    horizontalAxis = verticalAxis = new AxisParameters()
                     {
                         startLocation = graphPadding.Left,
                         baseOffset = 0,
@@ -274,14 +294,14 @@ namespace Graphing
                             lowY = traces[traceIndex].LowestY();
                     }
 
-                    horizontalAxis = new axisParameters()
+                    horizontalAxis = new AxisParameters()
                     {
                         baseOffset = (int)lowX,
                         startLocation = (int)(graphArea.Width * (-lowX / (highX - lowX))),
                         scaleFactor = graphArea.Width / (highX - lowX),
                         axisLabelSpacing = 30
                     };
-                    verticalAxis = new axisParameters()
+                    verticalAxis = new AxisParameters()
                     {
                         baseOffset = (int)lowY,
                         startLocation = (int)(graphArea.Height * (highY / (highY - lowY))),
@@ -337,7 +357,7 @@ namespace Graphing
 
             foreach (DataPoint p in lineOfData.DataPoints)
             {
-                newLine.AddDataPoint(GetPointOrdinate(p.X, horizontalAxis, true), GetPointOrdinate(p.Y, verticalAxis, false), p.isCycled);
+                newLine.AddDataPoint(GetPointOrdinate(p.X, horizontalAxis, true), GetPointOrdinate(p.Y, verticalAxis, false), p.cycles);
             }
 
             return newLine;
@@ -349,7 +369,7 @@ namespace Graphing
         /// <param name="locator">The ordinate that is to be displayed</param>
         /// <param name="axis">The axis on which the ordinate is required</param>
         /// <returns>The value of the ordinate that the point is to be drawn at</returns>
-        static int GetPointOrdinate(double locator, axisParameters axis, bool horizontal)
+        static int GetPointOrdinate(double locator, AxisParameters axis, bool horizontal)
         {
             double locatorToRepresent = locator + (horizontal ? -1 : 1) * axis.baseOffset;
             int position = (int)(axis.startLocation + (locatorToRepresent * axis.scaleFactor));
@@ -357,11 +377,11 @@ namespace Graphing
             return position;
         }
 
-        DataPoint GetPointData(Point clickLocation)
+        protected DataPoint GetPointData(Point clickLocation)
         {
             DataPoint point = new DataPoint()
             {
-                isCycled = false,
+                cycles = 0,
             };
 
             int x = clickLocation.X;
@@ -386,7 +406,7 @@ namespace Graphing
             bool initialValueAssigned = false;
             for (int lineIndex = 0; lineIndex < traces.Count; lineIndex++)
             {
-                if (traces[lineIndex].Show)
+                if (traces[lineIndex].Show && traces[lineIndex].DataPoints.Count > XPointIndex)
                 {
                     if (initialValueAssigned)
                     {

@@ -86,8 +86,8 @@ namespace StratSim.Model.Files
         private static int[] GetDataFromFileString(string[] fileData, int raceYear, out int driversRacing)
         {
             int[] gridOrder;
-            //TODO: save the 2015 search?
             gridOrder = Get2014GridDataFromFile(fileData, out driversRacing);
+            //Old version of 2015 search now no longer used as alternative search method is available.
             /*if (raceYear == 2014)
                 gridOrder = Get2014GridDataFromFile(fileData, out driversRacing);
             else

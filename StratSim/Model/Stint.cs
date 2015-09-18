@@ -16,7 +16,6 @@ namespace StratSim.Model
         /// <summary>
         /// Creates a new, empty instance of the stint class.
         /// </summary>
-        /// <param name="_driver">The driver to link to the stint</param>
         /// <param name="passSession">The session in which the stint takes place</param>
         /// <param name="passStartLap">The lap on which the stint starts</param>
         public Stint(int passSession, int passStartLap)

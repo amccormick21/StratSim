@@ -9,18 +9,18 @@ namespace Graphing
 {
     public struct DataPoint
     {
-        public DataPoint(double x, double y, int index, bool isCycled)
+        public DataPoint(double x, double y, int index, int cycles)
         {
             X = x;
             Y = y;
             this.index = index;
-            this.isCycled = isCycled;
+            this.cycles = cycles;
         }
 
         public double X;
         public double Y;
         public int index;
-        public bool isCycled;
+        public int cycles;
 
         public Point Point
         {

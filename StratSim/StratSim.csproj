@@ -97,8 +97,12 @@
     <Compile Include="Model\Data.cs" />
     <Compile Include="Model\DriverData.cs" />
     <Compile Include="Model\Files\GridData.cs" />
+    <Compile Include="Model\Files\HistoryData.cs" />
     <Compile Include="Model\PaceParameterCollection.cs" />
     <Compile Include="Model\PracticeTimesCollection.cs" />
+    <Compile Include="Model\RaceHistory\RaceHistoryLap.cs" />
+    <Compile Include="Model\RaceHistory\RaceHistorySimulation.cs" />
+    <Compile Include="Model\RaceHistory\RaceHistoryStint.cs" />
     <Compile Include="Model\RaceStrategy.cs" />
     <Compile Include="Model\Team.cs" />
     <Compile Include="ViewModel\DriverIndexEventArgs.cs" />
@@ -160,6 +164,9 @@
     <Compile Include="View\Panels\GridBasePanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\Panels\RaceHistoryPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\Panels\RacePanel.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -197,6 +204,7 @@
     <Compile Include="View\Panels\PaceParameters.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="View\UserControls\StintPanelEventArgs.cs" />
     <Compile Include="View\UserControls\StintPanels.cs">
       <SubType>Component</SubType>
     </Compile>

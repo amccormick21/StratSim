@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Graphing
 {
@@ -43,6 +44,11 @@ namespace Graphing
             CycleValueChanged += CyclingGraph_CycleValueChanged;
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+        }
+
         void CyclingGraph_CycleChanged(object sender, bool e)
         {
             Invalidate();
@@ -79,49 +85,76 @@ namespace Graphing
             List<GraphLine> newTraces = new List<GraphLine>();
             List<DataPoint> cycledPoints;
             DataPoint pointToAlter;
-            double cycleLimit;
-            bool lineCycled;
             int pointIndex;
+            int cycles;
             for (int lineIndex = 0; lineIndex < traces.Count; lineIndex++)
             {
+                cycles = 0;
                 pointIndex = 0;
                 cycledPoints = new List<DataPoint>();
-                while (pointIndex < traces[lineIndex].DataPoints.Count && pointIndex < cycleLine.DataPoints.Count)
+                if (traces[lineIndex].DataPoints.Count > 2)
                 {
-                    lineCycled = false;
-
-                    pointToAlter = traces[lineIndex].DataPoints[pointIndex];
-                    //Cycling is evaluated on every point.
-                    if (pointIndex > 0) //The first points are never cycled
+                    while (pointIndex < traces[lineIndex].DataPoints.Count)
                     {
-                        //The limit is given by the most recent lap time of the normalisation trace.
-                        cycleLimit = (cycleLine.DataPoints[pointIndex].Y - cycleLine.DataPoints[pointIndex - 1].Y) / 2;
-                        
-                        //Continue to cycle either up or down until it is within bounds.
-                        while (pointToAlter.Y > cycleLine.DataPoints[pointIndex].Y + cycleLimit || pointToAlter.Y < cycleLine.DataPoints[pointIndex].Y - cycleLimit)
+                        pointToAlter = traces[lineIndex].DataPoints[pointIndex];
+                        //Cycling is evaluated on every point.
+                        if (pointIndex < cycleLine.DataPoints.Count)
                         {
-                            if (pointToAlter.Y > cycleLine.DataPoints[pointIndex].Y + cycleLimit)
+                            if (pointIndex == 0) //The first points are never cycled
                             {
-                                //Getting too far ahead so cycle down
-                                pointToAlter.Y -= cycleLimit * 2;
-                                lineCycled = true;
+                                cycledPoints.Add(new DataPoint(pointToAlter.X, pointToAlter.Y, pointToAlter.index, cycles));
                             }
-                            else if (pointToAlter.Y < cycleLine.DataPoints[pointIndex].Y - cycleLimit)
+                            else
                             {
-                                pointToAlter.Y += cycleLimit * 2;
-                                lineCycled = true;
+                                if (pointIndex + cycles >= 0 && pointIndex + cycles < cycleLine.DataPoints.Count)
+                                {
+                                    if (pointToAlter.Y - cycleLine.DataPoints[pointIndex + cycles].Y > (cycleLine.DataPoints[pointIndex + cycles].Y - cycleLine.DataPoints[pointIndex - 1 + cycles].Y) / 2)
+                                    {
+                                        //Cycles needs to increase
+                                        cycles++;
+                                    }
+                                    else if (pointToAlter.Y - cycleLine.DataPoints[pointIndex + cycles].Y < -(cycleLine.DataPoints[pointIndex + cycles].Y - cycleLine.DataPoints[pointIndex - 1 + cycles].Y) / 2)
+                                    {
+                                        //Cycles needs to be reduced
+                                        cycles--;
+                                    }
+                                    // else no change to cycles
+                                }
+                                //For positive lap deficits, add past laps from normalisation trace (this cancels out the normalisation).
+                                //For negative lap deficits, subtract future laps from normalisation trace.
+                                MakeCyclingAdjustments(cycleLine, cycledPoints, pointToAlter, pointIndex, cycles);
                             }
                         }
-                    }
+                        else
+                        {
+                            //Within the trace to alter but outside of the cycling trace
+                            //Assume that there are no further changes to the cycling
+                            MakeCyclingAdjustments(cycleLine, cycledPoints, pointToAlter, pointIndex, cycles);
+                        }
 
-                    cycledPoints.Add(new DataPoint(pointToAlter.X, pointToAlter.Y, pointToAlter.index, lineCycled));
-                    pointIndex++;
+                        pointIndex++;
+                    }
                 }
 
                 newTraces.Add(new GraphLine(cycledPoints, traces[lineIndex].Index, traces[lineIndex].Show, traces[lineIndex].LineColour));
             }
-            
+
             return newTraces;
+        }
+
+        private void MakeCyclingAdjustments(GraphLine cycleLine, List<DataPoint> cycledPoints, DataPoint pointToAlter, int pointIndex, int cycles)
+        {
+            int lowerBound = (cycles >= 0 ? 0 : cycles);
+            int upperBound = (cycles >= 0 ? cycles : 0);
+            for (int cycleAdjustment = lowerBound; cycleAdjustment != upperBound; cycleAdjustment++)
+            {
+                if (pointIndex + cycleAdjustment > 0 && pointIndex + cycleAdjustment < cycleLine.DataPoints.Count)
+                {
+                    pointToAlter.Y -= Math.Sign(cycles) * (cycleLine.DataPoints[pointIndex + cycleAdjustment].Y - cycleLine.DataPoints[pointIndex - 1 + cycleAdjustment].Y);
+                }
+                //Otherwise no change
+            }
+            cycledPoints.Add(new DataPoint(pointToAlter.X, pointToAlter.Y, pointToAlter.index, cycles));
         }
     }
 }

@@ -26,6 +26,7 @@ namespace StratSim
         public static TimingArchives TimingArchives;
         public static RacePanel RacePanel;
         public static GridPanel GridPanel;
+        public static RaceHistoryPanel RaceHistoryPanel;
 
         static Data myModel;
 

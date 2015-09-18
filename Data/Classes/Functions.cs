@@ -339,8 +339,16 @@ namespace DataSources
             }
 
             // Solve for m and b.
-            gradient = (Sxy * S1 - Sx * Sy) / (Sxx * S1 - Sx * Sx);
-            intercept = (Sxy * Sx - Sy * Sxx) / (Sx * Sx - S1 * Sxx);
+            try
+            {
+                gradient = (Sxy * S1 - Sx * Sy) / (Sxx * S1 - Sx * Sx);
+                intercept = (Sxy * Sx - Sy * Sxx) / (Sx * Sx - S1 * Sxx);
+            }
+            catch (DivideByZeroException)
+            {
+                gradient = 0;
+                intercept = 0;
+            }
 
             return (float)Math.Sqrt(ErrorSquared(points, gradient, intercept));
         }

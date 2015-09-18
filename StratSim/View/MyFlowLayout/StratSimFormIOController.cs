@@ -57,6 +57,7 @@ namespace StratSim.View.MyFlowLayout
             events.ShowRacePanel -= PanelControlEvents_ShowRacePanel;
             events.ShowGridPanel -= events_ShowGridPanel;
             events.StartGridPanel -= events_StartGridPanel;
+            events.ShowRaceHistoryPanel -= events_ShowRaceHistoryPanel;
         }
 
         public override void SubscribeToEvents()
@@ -82,6 +83,19 @@ namespace StratSim.View.MyFlowLayout
             events.ShowRacePanel += PanelControlEvents_ShowRacePanel;
             events.ShowGridPanel += events_ShowGridPanel;
             events.StartGridPanel += events_StartGridPanel;
+            events.ShowRaceHistoryPanel += events_ShowRaceHistoryPanel;
+        }
+
+        private void events_ShowRaceHistoryPanel(MainForm callingForm)
+        {
+            if (callingForm == base.AssociatedForm)
+            {
+                RemoveGraphPanels();
+                StartHistoryPanel();
+                ShowDriverList(true);
+                ShowGraph();
+                FinishedAdding();
+            }
         }
 
         void events_StartGridPanel(int[] gridOrder)
@@ -395,6 +409,13 @@ namespace StratSim.View.MyFlowLayout
             {
                 AddPanel(Program.GridPanel);
             }
+        }
+
+        private void StartHistoryPanel()
+        {
+            Program.RaceHistoryPanel = new RaceHistoryPanel(base.AssociatedForm);
+            AddContentPanel(Program.RaceHistoryPanel);
+            Program.RaceHistoryPanel.AddToolStrip();
         }
 
         void StartRaceSimulation()

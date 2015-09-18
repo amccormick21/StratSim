@@ -233,3 +233,12 @@ C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\MyFlowLayout\obj\Debug\MyFlowLayout.exe
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\MyFlowLayout\obj\Debug\MyFlowLayout.pdb
 C:\Users\Alex\SkyDrive\Documents\Projects\StratSim\3.1.9\Strategy Simulation V2\MyFlowLayout\obj\Debug\MyFlowLayout.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\bin\Debug\MyFlowLayout.exe.config
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\bin\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\bin\Debug\MyFlowLayout.pdb
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\obj\Debug\MyFlowLayout.csprojResolveAssemblyReference.cache
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\obj\Debug\MyFlowLayout.MainForm.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\obj\Debug\MyFlowLayout.Properties.Resources.resources
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\obj\Debug\MyFlowLayout.csproj.GenerateResource.Cache
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\obj\Debug\MyFlowLayout.exe
+C:\Users\Alex\SkyDrive\Documents\Projects\Github\StratSim\MyFlowLayout\obj\Debug\MyFlowLayout.pdb

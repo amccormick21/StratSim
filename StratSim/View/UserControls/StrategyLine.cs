@@ -18,6 +18,7 @@ namespace StratSim.View.UserControls
     };
 
     /// <summary>
+    /// No longer used but maintained as code is functional.
     /// Contains a collection of points that, when linked, represents a trace
     /// on a cumulative time graph.
     /// </summary>
@@ -27,8 +28,6 @@ namespace StratSim.View.UserControls
         int driverIndex;
         float sumOfTime = 0;
         bool show = true;
-
-        //TODO: Inherit from new 'line' class. Refactor to move elements around.
 
         public StrategyLine(List<lapDataPoint> Points, int driverIndex)
         {
@@ -49,7 +48,7 @@ namespace StratSim.View.UserControls
         /// <param name="verticalAxis">The vertical axis parameters</param>
         /// <param name="g">The graphics to use to draw the line</param>
         /// <param name="upToLap">The last lap to display</param>
-        public void DrawLine(axisParameters horizontalAxis, axisParameters verticalAxis, Graphics g, int upToLap)
+        public void DrawLine(AxisParameters horizontalAxis, AxisParameters verticalAxis, Graphics g, int upToLap)
         {
             //If the line is to be shown
             if (show)
@@ -87,7 +86,7 @@ namespace StratSim.View.UserControls
         /// <param name="locator">The ordinate that is to be displayed</param>
         /// <param name="axis">The axis on which the ordinate is required</param>
         /// <returns>The value of the ordinate that the point is to be drawn at</returns>
-        int GetPointOrdinate(float locator, axisParameters axis, bool horizontal)
+        int GetPointOrdinate(float locator, AxisParameters axis, bool horizontal)
         {
             float locatorToRepresent = locator + (horizontal ? -1 : 1) * axis.baseOffset;
             int position = (int)(axis.startLocation + (axis.scaleFactor * locatorToRepresent));

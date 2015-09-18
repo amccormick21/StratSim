@@ -50,6 +50,7 @@ namespace StratSim.View.MyFlowLayout
         public event ViewPanelEventHandler RemoveGraphPanels;
         public event ViewPanelEventHandler ShowRacePanel;
         public event ViewPanelEventHandler ShowGridPanel;
+        public event ViewPanelEventHandler ShowRaceHistoryPanel;
 
         //The following routines fire events to show particular panels.
         public void OnShowInfoPanel(MainForm form)
@@ -169,6 +170,12 @@ namespace StratSim.View.MyFlowLayout
         {
             if (ShowGridPanel != null)
                 ShowGridPanel(form);
+        }
+        
+        public void OnShowRaceHistoryPanel(MainForm form)
+        {
+            if (ShowRaceHistoryPanel != null)
+                ShowRaceHistoryPanel(form);
         }
     }
 }

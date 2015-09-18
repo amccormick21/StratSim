@@ -1,11 +1,14 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30723.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratSim", "StratSim\StratSim.csproj", "{B6A9DC4C-0351-4AEB-ADB1-4461424107FC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StratSimTest", "StratSimTest\StratSimTest.csproj", "{5D4F6F34-4663-4BD7-8ED0-A0BA0DFB9488}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EA54B646-B7EB-4EB1-B25A-0E6470056053} = {EA54B646-B7EB-4EB1-B25A-0E6470056053}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeamStats", "TeamStats\TeamStats.csproj", "{2F72AA6D-3581-466C-ADBE-FF54E73732A4}"
 EndProject

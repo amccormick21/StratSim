@@ -13,19 +13,22 @@ namespace Graphing
         public int Index { get; set; }
         internal bool Show { get; set; }
         internal Color LineColour { get; set; }
+        bool specifiedShow;
 
         public GraphLine(IEnumerable<DataPoint> points, int index, bool show, Color color)
         {
             this.DataPoints = new List<DataPoint>(points);
             this.Index = index;
-            this.Show = show;
+            specifiedShow = show;
+            this.Show = specifiedShow && DataPoints.Count > 2;
             this.LineColour = color;
         }
         public GraphLine(int index, bool show, Color color)
         {
             this.DataPoints = new List<DataPoint>();
             this.Index = index;
-            this.Show = show;
+            specifiedShow = show;
+            Show = specifiedShow;
             this.LineColour = color;
         }
 
@@ -132,7 +135,7 @@ namespace Graphing
                 //Cycle through the points
                 for (int pointIndex = 1; pointIndex < DataPoints.Count; pointIndex++)
                 {
-                    if (DataPoints[pointIndex].isCycled)
+                    if (DataPoints[pointIndex].cycles != 0)
                     {
                         pen.DashPattern = new float[] { 1, 2 };
                         pen.Width = 1F;
@@ -152,7 +155,7 @@ namespace Graphing
                     endPoint = DataPoints[pointIndex];
 
                     //If the point is to be shown
-                    if (DataPoints[pointIndex - 1].isCycled == DataPoints[pointIndex].isCycled)
+                    if (DataPoints[pointIndex - 1].cycles == DataPoints[pointIndex].cycles)
                     {
                         if (g.ClipBounds.Contains(startPoint.Point) && g.ClipBounds.Contains(endPoint.Point))
                         {
@@ -165,9 +168,10 @@ namespace Graphing
 
         }
 
-        internal void AddDataPoint(int X, int Y, bool draw)
+        internal void AddDataPoint(int X, int Y, int cycles)
         {
-            DataPoints.Add(new DataPoint(X, Y, Index, draw));
+            DataPoints.Add(new DataPoint(X, Y, Index, cycles));
+            Show = specifiedShow && DataPoints.Count > 2;
         }
     }
 }
