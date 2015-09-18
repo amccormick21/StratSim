@@ -38,7 +38,7 @@ namespace StratSim.View.Panels
         ComboBox SelectRace = new ComboBox();
         ComboBox SelectSession = new ComboBox();
         Label EnterText = new Label();
-        Button SelectText = new Button();
+        Button StartSimulation = new Button();
         Button AnalyseData = new Button();
         Button ShowGridWindow;
 
@@ -135,13 +135,13 @@ namespace StratSim.View.Panels
             SelectSession.SelectedIndexChanged += cbxSelectSession_SelectedIndexChanged;
             this.Controls.Add(SelectSession);
 
-            SelectText.Location = new Point(leftBorder * 2 + 200, topBorder + 25);
-            SelectText.Size = btnDefault;
-            SelectText.Text = "Confirm data entry";
-            SelectText.FlatStyle = global::MyFlowLayout.Properties.Settings.Default.FlatStyle;
-            //SelectText.Click += btnSelectText_Click;
-            SelectText.Visible = true;
-            this.Controls.Add(SelectText);
+            StartSimulation.Location = new Point(leftBorder * 2 + 200, topBorder + 25);
+            StartSimulation.Size = btnDefault;
+            StartSimulation.Text = "Start History Simulation";
+            StartSimulation.FlatStyle = global::MyFlowLayout.Properties.Settings.Default.FlatStyle;
+            StartSimulation.Click += StartSimulation_Click;
+            StartSimulation.Visible = true;
+            this.Controls.Add(StartSimulation);
 
             AnalyseData.Location = new Point(leftBorder * 2 + 200, topBorder * 2 + btnDefault.Height + 25);
             AnalyseData.Size = btnDefault;
@@ -158,6 +158,11 @@ namespace StratSim.View.Panels
             ShowGridWindow.FlatStyle = global::MyFlowLayout.Properties.Settings.Default.FlatStyle;
             ShowGridWindow.Click += ShowGridWindow_Click;
             this.Controls.Add(ShowGridWindow);
+        }
+
+        private void StartSimulation_Click(object sender, EventArgs e)
+        {
+            ((StratSimPanelControlEvents)ParentForm.IOController.PanelControlEvents).OnShowRaceHistoryPanel(ParentForm);
         }
 
         void ShowGridWindow_Click(object sender, EventArgs e)
@@ -188,7 +193,7 @@ namespace StratSim.View.Panels
         /// <returns>An integer representing the session index to display</returns>
         int GetNextSessionIndex(Session currentSession)
         {
-            if (currentSession == Session.Race)
+            if (currentSession == Session.History)
             {
                 return -1;
             }

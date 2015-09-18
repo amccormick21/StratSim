@@ -18,6 +18,7 @@ namespace StratSim.View.Panels
         internal void SetDriverPanel(DriverSelectPanel driverSelectPanel)
         {
             DriverPanel = driverSelectPanel;
+            DriverPanel.LapNumberChanged += DriverPanel_LapNumberChanged;
         }
 
         protected CyclingGraph graphPanel;
@@ -38,11 +39,16 @@ namespace StratSim.View.Panels
             SetPanelProperties(DockTypes.Top, AutosizeTypes.Free, FillStyles.None, this.Size);
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            GraphPanel.Dispose();
+        }
+
         void NewGraph_PanelClosed(MainForm LeavingForm)
         {
             //Unsubscribe from events
             MyEvents.AxesChangedByUser -= MyEvents_AxesModifiedByUser;
-            MyEvents.LapNumberChanged -= MyEvents_LapNumberChanged;
             GraphPanel.GraphClicked -= GraphPanel_GraphClicked;
         }
 
@@ -50,27 +56,26 @@ namespace StratSim.View.Panels
         {
             //Subscribe to events
             MyEvents.AxesChangedByUser += MyEvents_AxesModifiedByUser;
-            MyEvents.LapNumberChanged += MyEvents_LapNumberChanged;
             GraphPanel.GraphClicked += GraphPanel_GraphClicked;
             GraphPanel.HorizontalAxisModified += AxisModified;
             GraphPanel.VerticalAxisModified += AxisModified;
 
             //Setup axes based on panel size
-            GraphPanel.SetupAxes(StratSim.Model.Data.GetRaceLaps(), 0, 100, 0.5);
+            GraphPanel.SetupAxes(Data.GetRaceLaps(), 0, 100, 0.5);
         }
 
-        private void AxisModified(object sender, axisParameters e)
+        private void AxisModified(object sender, AxisParameters e)
         {
             MyEvents.OnAxesComputerGenerated(GraphPanel.HorizontalAxis, GraphPanel.VerticalAxis, GraphPanel.NormalisationType);
             Invalidate();
         }
 
-        private void MyEvents_LapNumberChanged(int newLapNumber)
+        private void DriverPanel_LapNumberChanged(object sender, int e)
         {
-            GraphPanel.ResizeGraph(newLapNumber);
+            GraphPanel.ResizeGraph(e);
         }
 
-        private void MyEvents_AxesModifiedByUser(axisParameters horizontalAxis, axisParameters verticalAxis, NormalisationType normalisation)
+        private void MyEvents_AxesModifiedByUser(AxisParameters horizontalAxis, AxisParameters verticalAxis, NormalisationType normalisation)
         {
             GraphPanel.SetNormalisationType(normalisation);
             GraphPanel.SetHorizontalAxis(horizontalAxis);
@@ -87,10 +92,17 @@ namespace StratSim.View.Panels
         private void LoadGraph()
         {
             graphPanel = new CyclingGraph();
+            GraphPanel.NormalisationLaps.Add(Data.GetRaceLaps());
             GraphPanel.SetNormalisationType(NormalisationType.OnAverageValue);
             GraphPanel.CycleGraph = true;
+            GraphPanel.Invalidated += GraphPanel_Invalidated;
             Invalidate();
             this.Resize += NewGraph_Resize;
+        }
+
+        private void GraphPanel_Invalidated(object sender, System.Windows.Forms.InvalidateEventArgs e)
+        {
+            this.Invalidate();
         }
 
         void NewGraph_Resize(object sender, EventArgs e)

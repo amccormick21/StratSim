@@ -148,7 +148,6 @@ namespace MyFlowLayout
                 {
                     FormCollection[((MyPanel)ControlToRemove).ParentForm.FormIndex].IOController.RemovePanel(ControlToRemove);
                 }
-
             }
         }
 

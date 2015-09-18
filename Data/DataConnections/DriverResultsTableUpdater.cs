@@ -111,13 +111,13 @@ namespace DataSources.DataConnections
                     sqlStatement += "Grid=@Result ";
                     break;
                 case Session.Race:
-                    sqlStatement += "Position=@Result, ";
+                    sqlStatement += "[Position]=@Result, ";
                     sqlStatement += "FinishState=@FinishState ";
                     comm.Parameters.AddWithValue("FinishState", Convert.ToInt32(result.finishState));
                     break;
             }
-            sqlStatement += "WHERE DriverResults.DriverNumber = @DriverNumber ";
-            sqlStatement += "AND DriverResults.RaceCalendarIndex = @TrackID";
+            sqlStatement += "WHERE DriverResults.DriverNumber=@DriverNumber ";
+            sqlStatement += "AND DriverResults.RaceCalendarIndex=@TrackID";
             comm.CommandText = sqlStatement;
             comm.Parameters.AddWithValue("DriverNumber", driverNumber);
             comm.Parameters.AddWithValue("TrackID", trackID);
@@ -254,58 +254,6 @@ namespace DataSources.DataConnections
                 }
             }
 
-            /*
-            //TODO: return records via query and use update/insert
-                var stratSimDataSet = new StratSimDataSet();
-            var driverResultsTableAdapter = new DriverResultsTableAdapter();
-            var raceCalendarTableAdapter = new RaceCalendarTableAdapter();
-            driverResultsTableAdapter.Fill(stratSimDataSet.DriverResults);
-            raceCalendarTableAdapter.Fill(stratSimDataSet.RaceCalendar);
-            StratSimDataSet.DriverResultsRow row;
-
-            bool[,] rowExists = new bool[numberOfDrivers, numberOfTracks];
-            int databaseDriverIndex, databaseTrackIndex;
-            int driverNumber;
-
-            //Modify the existing rows and set a flag if they are found.
-            for (int rowIndex = 0; rowIndex < stratSimDataSet.DriverResults.Count; rowIndex++)
-            {
-                row = stratSimDataSet.DriverResults[rowIndex];
-                if (currentYear == row.RaceCalendarRow.TrackYear)
-                {
-                    driverNumber = Convert.ToInt32(row.DriverNumber);
-                    databaseDriverIndex = driverIndexDictionary[driverNumber];
-                    databaseTrackIndex = row.RaceCalendarRow.Round - 1;
-                    if (results[databaseDriverIndex, databaseTrackIndex].modified)
-                    {
-                        rowExists[databaseDriverIndex, databaseTrackIndex] = true;
-                        ModifyRow(ref row, results[databaseDriverIndex, databaseTrackIndex], session);
-                    }
-                    driverResultsTableAdapter.Update(row);
-                }
-            }
-
-            //Create new rows if the results have not been found.
-            int yearOffset = (currentYear - 2014) * numberOfDrivers * numberOfTracks;
-            for (int raceIndex = 0; raceIndex < numberOfTracks; raceIndex++)
-            {
-                for (int driverIndex = 0; driverIndex < numberOfDrivers; driverIndex++)
-                {
-
-                    if (results[driverIndex, raceIndex].modified && !rowExists[driverIndex, raceIndex])
-                    {
-                        row = stratSimDataSet.DriverResults.NewDriverResultsRow();
-                        driverNumber = driverNumbers[driverIndex];
-                        row.DriverNumber = (short)driverNumber;
-                        row.RaceCalendarIndex = (short)RaceCalendarConnection.GetRaceCalendarID(raceIndex + 1, currentYear);
-                        row.DriverResultID = (short)(stratSimDataSet.DriverResults.Count + 1);
-                        ModifyRow(ref row, results[driverIndex, raceIndex], session);
-                        stratSimDataSet.DriverResults.AddDriverResultsRow(row);
-                        driverResultsTableAdapter.Update(row);
-                    }
-                }
-            }
-            */
             if (DatabaseModified != null)
                 DatabaseModified(null, new ResultsUpdatedEventArgs(results, session));
         }

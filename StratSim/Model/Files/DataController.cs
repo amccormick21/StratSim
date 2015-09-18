@@ -6,8 +6,9 @@ namespace StratSim.Model.Files
     /// <summary>
     /// Controls the loading of data from a file and the processing of the data
     /// in the file
+    /// Can be made private once testing is complete.
     /// </summary>
-    class DataController
+    public class DataController
     {
         public Dictionary<Session, bool> sessionDataLoaded = new Dictionary<Session, bool>();
 
@@ -46,6 +47,8 @@ namespace StratSim.Model.Files
                     return new SpeedData(data);
                 case TimingDataType.GridData:
                     return new GridData(data);
+                case TimingDataType.HistoryData:
+                    return new HistoryData(data);
                 default:
                     return new LapData();
             }
@@ -61,6 +64,8 @@ namespace StratSim.Model.Files
                     return new SpeedData();
                 case TimingDataType.GridData:
                     return new GridData();
+                case TimingDataType.HistoryData:
+                    return new HistoryData();
                 default:
                     return new LapData();
             }

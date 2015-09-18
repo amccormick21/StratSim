@@ -28,20 +28,22 @@ namespace StratSim.View.UserControls
         ComboBox tyreType;
         Label stintLabel, length, time, tyre, stintTime;
 
-        Strategy thisStrategy;
-        Driver thisDriver;
+        internal int DriverIndex { get; private set; }
+        internal int StintLength { get; private set; }
+        internal int StintLengthUpperBound { get; private set; }
+        internal TyreType TyreType { get; private set; }
+        internal float TotalTime { get; private set; }
+        internal int StintIndex { get; private set; }
 
-        int originalLength;
-        int upperBound;
-
-        private int stintIndex;
-
-        public StintPanel(int stint, Driver driver, Strategy strategy)
+        public StintPanel(int stintIndex, int stintLength, TyreType tyreType, float totalTime, int driverIndex, int stintLengthUpperBound)
         {
-            this.Size = new Size(280, 100);
-            stintIndex = stint;
-            thisDriver = driver;
-            thisStrategy = (Strategy)strategy.Clone();
+            Size = new Size(280, 100);
+            StintIndex = stintIndex;
+            DriverIndex = driverIndex;
+            StintLength = stintLength;
+            TyreType = tyreType;
+            TotalTime = totalTime;
+            StintLengthUpperBound = stintLengthUpperBound;
             AddControls();
         }
 
@@ -52,61 +54,49 @@ namespace StratSim.View.UserControls
             stintLabel = new Label();
             stintLabel.Location = new Point(10, 10);
             stintLabel.Size = lblDefault;
-            stintLabel.Text = "Stint " + (this.StintNumber + 1);
-            this.Controls.Add(stintLabel);
+            stintLabel.Text = "Stint " + (StintIndex + 1);
+            Controls.Add(stintLabel);
 
             //Start the stint buttons layout panel.
-            Buttons = new StintButtonsLayoutPanel(thisDriver, stintIndex, thisStrategy);
+            Buttons = new StintButtonsLayoutPanel(DriverIndex, StintIndex);
+            Buttons.StintOrderChanged += Buttons_StintOrderChanged;
             Buttons.Location = new Point(10, 40);
-            this.Controls.Add(Buttons);
+            Controls.Add(Buttons);
 
             length = new Label();
             length.Location = new Point(100, 10);
             length.Size = lblDefault;
             length.Text = "Length";
-            this.Controls.Add(length);
+            Controls.Add(length);
 
             time = new Label();
             time.Location = new Point(100, 35);
             time.Size = lblDefault;
             time.Text = "Time";
-            this.Controls.Add(time);
+            Controls.Add(time);
 
             tyre = new Label();
             tyre.Location = new Point(100, 60);
             tyre.Size = lblDefault;
             tyre.Text = "Tyre";
-            this.Controls.Add(tyre);
-
-            //calculate the length and upper bounds.
-            originalLength = thisStrategy.Stints[stintIndex].stintLength;
-
-            //upper bound depends on either previous or next stint
-            if (stintIndex == thisStrategy.NoOfStints - 1) //if stint is last in strategy
-            {
-                upperBound = originalLength + thisStrategy.Stints[stintIndex - 1].stintLength;
-            }
-            else
-            {
-                upperBound = originalLength + thisStrategy.Stints[stintIndex + 1].stintLength;
-            }
+            Controls.Add(tyre);
 
             stintLength = new TextBox();
             stintLength.Size = txtDefault;
             stintLength.Location = new Point(200, 10);
-            stintLength.Text = Convert.ToString(originalLength);
+            stintLength.Text = Convert.ToString(StintLength);
             stintLength.BorderStyle = System.Windows.Forms.BorderStyle.None;
             toolTip = new MyToolTip(stintLength, "The laps in this stint");
             stintLength.LostFocus += stintLength_LostFocus;
-            this.Controls.Add(stintLength);
+            Controls.Add(stintLength);
 
             stintTime = new Label();
             stintTime.Size = lblDefault;
             stintTime.Location = new Point(200, 35);
-            stintTime.Text = Convert.ToString(thisStrategy.Stints[stintIndex].TotalTime());
+            stintTime.Text = Convert.ToString(TotalTime);
             stintTime.BorderStyle = System.Windows.Forms.BorderStyle.None;
             toolTip = new MyToolTip(stintTime, "The total time for this stint");
-            this.Controls.Add(stintTime);
+            Controls.Add(stintTime);
 
             tyreType = new ComboBox();
             foreach (var type in (TyreType[])Enum.GetValues(typeof(TyreType)))
@@ -115,12 +105,18 @@ namespace StratSim.View.UserControls
             }
             tyreType.Size = txtDefault;
             tyreType.Location = new Point(200, 60);
-            tyreType.SelectedIndex = (int)thisStrategy.Stints[stintIndex].tyreType;
+            tyreType.SelectedIndex = (int)TyreType;
             tyreType.FlatStyle = global::MyFlowLayout.Properties.Settings.Default.FlatStyle;
             tyreType.DropDownStyle = ComboBoxStyle.DropDownList;
             tyreType.SelectedIndexChanged += tyreType_SelectedIndexChanged;
             toolTip = new MyToolTip(tyreType, "The tyre type for this stint");
-            this.Controls.Add(tyreType);
+            Controls.Add(tyreType);
+        }
+
+        private void Buttons_StintOrderChanged(object sender, StintOperationEventArgs e)
+        {
+            if (StintOrderChanged != null)
+                StintOrderChanged(this, e);
         }
 
         /// <summary>
@@ -135,20 +131,16 @@ namespace StratSim.View.UserControls
 
             if (!incorrectValue)
             {
-                newStintLaps = (int)Functions.ValidateBetweenExclusive(newStintLaps, 0, upperBound, "stint length", ref incorrectValue, true);
+                newStintLaps = (int)Functions.ValidateBetweenExclusive(newStintLaps, 0, StintLengthUpperBound, "stint length", ref incorrectValue, true);
             }
             if (!incorrectValue)
             {
-                thisStrategy.Stints = thisStrategy.ChangeStintLength(stintIndex, newStintLaps);
-            }
-
-            //If something has changed, update the stint and the strategy.
-            if (newStintLaps != originalLength)
-            {
-                originalLength = newStintLaps;
-                stintLength.LostFocus -= stintLength_LostFocus;
-                thisStrategy.UpdateStrategyParameters();
-                MyEvents.OnStrategyModified(thisDriver, thisStrategy, false);
+                if (newStintLaps != StintLength && StintLengthChanged != null)
+                {
+                    StintLength = newStintLaps;
+                    stintLength.LostFocus -= stintLength_LostFocus;
+                    StintLengthChanged(this, new StintLengthChangedEventArgs(StintIndex, DriverIndex, newStintLaps));
+                }
             }
         }
 
@@ -157,22 +149,14 @@ namespace StratSim.View.UserControls
         /// </summary>
         void tyreType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Changes the tyre type of the stint.
-            thisStrategy.ChangeStintTyreType(stintIndex, (TyreType)tyreType.SelectedIndex);
-
+            if (TyreTypeChanged != null)
+                TyreTypeChanged(this, new TyreTypeChangedEventArgs(StintIndex, DriverIndex, (TyreType)tyreType.SelectedIndex));
             tyreType.SelectedIndexChanged -= tyreType_SelectedIndexChanged;
         }
 
-        public Driver Driver
-        {
-            get{return thisDriver;}
-            set{thisDriver = value;}
-        }
-        public int StintNumber
-        {
-            get{return stintIndex;}
-            set{stintIndex = value;}
-        }
+        internal event EventHandler<StintLengthChangedEventArgs> StintLengthChanged;
+        internal event EventHandler<TyreTypeChangedEventArgs> TyreTypeChanged;
+        internal event EventHandler<StintOperationEventArgs> StintOrderChanged;
     }
 
     /// <summary>
@@ -286,8 +270,8 @@ namespace StratSim.View.UserControls
 
         public int DriverIndex
         {
-            get{return driverIndex;}
-            set{driverIndex = value;}
+            get { return driverIndex; }
+            set { driverIndex = value; }
         }
     }
 }

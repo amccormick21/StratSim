@@ -115,7 +115,7 @@ namespace StratSimTest
         [TestMethod]
         public void TestGetTextFromPDF()
         {
-            var pdfPath = @"C:\Users\Alex\SkyDrive\Documents\Projects\F1 2014\Race Reports\Australia\Qualifying Preliminary Classification.pdf";
+            var pdfPath = @"C:\Users\Alex\SkyDrive\Documents\Projects\F1\Race Reports\2014\Australia\Qualifying Preliminary Classification.pdf";
             var text = DataInput.GetPDFText(pdfPath);
             var intended = "Qualifying Session Preliminary Classification";
             var firstLine = text.Substring(0, intended.Length);

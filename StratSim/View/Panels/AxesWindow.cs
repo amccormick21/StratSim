@@ -24,7 +24,7 @@ namespace StratSim.View.Panels
         Button OK, Cancel;
         ComboBox NormalisationTypeSelected;
 
-        axisParameters localHorizontalAxis, localVerticalAxis;
+        AxisParameters localHorizontalAxis, localVerticalAxis;
         NormalisationType localNormalisationType;
 
         public AxesWindow(MainForm FormToAdd)
@@ -38,7 +38,7 @@ namespace StratSim.View.Panels
             SetPanelProperties(DockTypes.Bottom, AutosizeTypes.Constant, FillStyles.None, this.Size);
         }
 
-        void MyEvents_AxesModified(axisParameters XAxis, axisParameters YAxis, NormalisationType normalisation)
+        void MyEvents_AxesModified(AxisParameters XAxis, AxisParameters YAxis, NormalisationType normalisation)
         {
             localHorizontalAxis = XAxis;
             localVerticalAxis = YAxis;
@@ -178,7 +178,7 @@ namespace StratSim.View.Panels
         /// <summary>
         /// Populates the text boxes on the panel with data from the given axes
         /// </summary>
-        void PopulateAxesBoxes(axisParameters horizontalAxis, axisParameters verticalAxis, NormalisationType normalisationType)
+        void PopulateAxesBoxes(AxisParameters horizontalAxis, AxisParameters verticalAxis, NormalisationType normalisationType)
         {
             axisParameterDataBoxes[0, 0].Text = Convert.ToString(horizontalAxis.baseOffset);
             axisParameterDataBoxes[0, 1].Text = Convert.ToString(horizontalAxis.scaleFactor);

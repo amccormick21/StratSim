@@ -255,15 +255,20 @@ namespace StratSim.ViewModel
         {
             if (File.Exists(fileName))
             {
-                StreamReader s = new StreamReader(fileName);
-                //read titles to remove.
-                s.ReadLine();
-                for (int driverIndex = 0; driverIndex < Data.NumberOfDrivers; driverIndex++)
+                using (StreamReader s = new StreamReader(fileName))
                 {
-                    string[] inputData = s.ReadLine().Split(',');
-                    for (int dataIndex = 0; dataIndex < 8; dataIndex++)
+                    //read titles to remove.
+                    s.ReadLine();
+                    for (int driverIndex = 0; driverIndex < Data.NumberOfDrivers; driverIndex++)
                     {
-                        fileData[dataIndex, driverIndex] = float.Parse(inputData[dataIndex + 1]);
+                        if (!s.EndOfStream)
+                        {
+                            string[] inputData = s.ReadLine().Split(',');
+                            for (int dataIndex = 0; dataIndex < 8; dataIndex++)
+                            {
+                                fileData[dataIndex, driverIndex] = float.Parse(inputData[dataIndex + 1]);
+                            }
+                        }
                     }
                 }
             }

@@ -24,6 +24,7 @@ namespace StratSim.View.Panels
         Label[,] gapLabels;
         ComboBox lapNumber;
 
+        RacePosition[,] positions;
         List<int> selectedDriverIndices = new List<int>();
 
         const int YSpacing = 23;
@@ -33,11 +34,9 @@ namespace StratSim.View.Panels
 
         bool showingTimeGaps;
 
-        public delegate void DriverSelectionChangedEventHandler();
-        public event DriverSelectionChangedEventHandler DriverSelectionsChanged;
-
-        public delegate void NormalisedDriverChangedEventHandler();
-        public event NormalisedDriverChangedEventHandler NormalisedDriverChanged;
+        public event EventHandler DriverSelectionsChanged;
+        public event EventHandler<int> NormalisedDriverChanged;
+        public event EventHandler<int> LapNumberChanged;
 
         public DriverSelectPanel(MainForm FormToAdd)
             : base(180, 550, "Drivers", FormToAdd, Properties.Resources.Driver_Select)
@@ -47,8 +46,6 @@ namespace StratSim.View.Panels
 
             InitialiseControls();
             AddControls();
-
-            MyEvents.UpdateIntervals += MyEvents_UpdateIntervals;
 
             SetPanelProperties(DockTypes.TopRight, AutosizeTypes.AutoHeight, FillStyles.FullHeight, this.Size);
         }
@@ -169,7 +166,9 @@ namespace StratSim.View.Panels
         void lapNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             currentLapNumber = lapNumber.SelectedIndex + 1;
-            MyEvents.OnLapNumberChanged(currentLapNumber);
+            WriteIntervalData(currentLapNumber);
+            if (LapNumberChanged != null)
+                LapNumberChanged(this, currentLapNumber);
         }
 
         /// <summary>
@@ -216,30 +215,52 @@ namespace StratSim.View.Panels
             AddControls();
         }
 
-        void MyEvents_UpdateIntervals(racePosition[,] positions, int lapNumber)
+        public void SetPositionData(RacePosition[,] positions)
         {
-            if (lapNumber == currentLapNumber && showingTimeGaps)
-            {
-                WriteIntervalData(positions);
-            }
+            this.positions = positions;
+            WriteIntervalData(currentLapNumber);
         }
 
-        void WriteIntervalData(racePosition[,] positions)
+        private void WriteIntervalData(int lapNumber)
         {
             int positionIndex = -1;
-            int lapNumber = currentLapNumber - 1;
+            int lapIndex = lapNumber - 1;
 
             for (int driverIndex = 0; driverIndex < Data.NumberOfDrivers; driverIndex++)
             {
                 positionIndex = -1;
-                while (positions[++positionIndex, lapNumber].driver != driverIndex)
+                while (++positionIndex < Data.NumberOfDrivers && positions[positionIndex, lapIndex].driver != driverIndex)
                 { }
-                gapLabels[driverIndex, 0].Text = Convert.ToString(positions[positionIndex, lapNumber].position + 1);
-                gapLabels[driverIndex, 1].Text = Convert.ToString(positions[positionIndex, lapNumber].gap);
-                gapLabels[driverIndex, 2].Text = Convert.ToString(positions[positionIndex, lapNumber].interval);
-                gapLabels[driverIndex, 3].Text = Convert.ToString(Data.Drivers[driverIndex].StopsBeforeLap(lapNumber));
+                if (positionIndex < Data.NumberOfDrivers)
+                {
+                    gapLabels[driverIndex, 0].Text = Convert.ToString(positions[positionIndex, lapIndex].position + 1);
+                    gapLabels[driverIndex, 1].Text = GetGapString(positions[positionIndex, lapIndex].gap);
+                    gapLabels[driverIndex, 2].Text = GetGapString(positions[positionIndex, lapIndex].interval);
+                    gapLabels[driverIndex, 3].Text = Convert.ToString(positions[positionIndex, lapIndex].pitStopsBeforeLap);
 
-                PositionDriverControls(positionIndex, driverIndex);
+                    PositionDriverControls(positionIndex, driverIndex);
+                }
+            }
+        }
+
+        private string GetGapString(float gap)
+        {
+            if (gap == 0)
+            {
+                return "";
+            }
+            else if (gap == -0.5F)
+            {
+                return "Ret";
+            }
+            else if (gap < 0)
+            {
+                int lapDifference = -(int)gap;
+                return (lapDifference == 1 ? "+ 1 Lap" : " + " + lapDifference.ToString() + " Laps");
+            }
+            else
+            {
+                return gap.ToString();
             }
         }
 
@@ -282,14 +303,14 @@ namespace StratSim.View.Panels
             Graph.GraphPanel.NormaliseOnBestTrace();
             Data.DriverIndex = Graph.GraphPanel.NormalisationIndex;
             if (NormalisedDriverChanged != null)
-                NormalisedDriverChanged();
+                NormalisedDriverChanged(this, Graph.GraphPanel.NormalisationIndex);
         }
         void RenormaliseGraphFromDriverSelectPanel(int driver)
         {
             Graph.GraphPanel.SetNormalisationIndex(driver);
             Data.DriverIndex = driver;
             if (NormalisedDriverChanged != null)
-                NormalisedDriverChanged();
+                NormalisedDriverChanged(this, driver);
         }
 
         void DriverCheckBoxChanged(DriverIndexEventArgs e)
@@ -320,7 +341,7 @@ namespace StratSim.View.Panels
 
             //Fire event to signify that the list of shown drivers has changed
             if (DriverSelectionsChanged != null)
-                DriverSelectionsChanged();
+                DriverSelectionsChanged(this, new EventArgs());
 
             Graph.ShowTraces();
 
@@ -341,7 +362,7 @@ namespace StratSim.View.Panels
         {
             Data.DriverIndex = checkedDriver;
             if (NormalisedDriverChanged != null)
-                NormalisedDriverChanged();
+                NormalisedDriverChanged(this, checkedDriver);
             Graph.ChangeNormalised(checkedDriver);
         }
 

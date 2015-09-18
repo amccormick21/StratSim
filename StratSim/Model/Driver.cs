@@ -223,16 +223,6 @@ namespace StratSim.Model
         }
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="upToLap">The lap on which to terminate counting</param>
-        /// <returns>The number of pit stops the driver will complete before this lap.</returns>
-        public int StopsBeforeLap(int upToLap)
-        {
-            return SelectedStrategy.PitStops.Count(i => i <= upToLap);
-        }
-
-        /// <summary>
         /// Clears data from the sessions completed by the driver.
         /// Used when changing the race to be calculated.
         /// </summary>

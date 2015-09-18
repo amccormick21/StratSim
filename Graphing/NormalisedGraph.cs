@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Graphing
 {
@@ -34,12 +36,83 @@ namespace Graphing
             }
         }
 
+        List<int> normalisationLaps;
+        public event EventHandler<List<int>> NormalisationZonesChanged;
+        public List<int> NormalisationLaps
+        {
+            get { return normalisationLaps; }
+            set {
+                normalisationLaps = value;
+                if (NormalisationZonesChanged != null)
+                    NormalisationZonesChanged(this, value);
+            }
+        }
+
 
         public NormalisedGraph()
             :base()
         {
+            NormalisationLaps = new List<int>();
             NormalisationTypeChanged += NormalisedGraph_NormalisationTypeChanged;
             NormalisationIndexChanged += NormalisedGraph_NormalisationIndexChanged;
+            NormalisationZonesChanged += NormalisedGraph_NormalisationZonesChanged;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+        }
+
+        protected override void SetupContextMenu()
+        {
+            base.SetupContextMenu();
+            var button = new ToolStripButton("Normalise");
+            button.Click += NormaliseCM_Click;
+            this.ContextMenuStrip.Items.Add(button);
+        }
+
+        private void NormaliseCM_Click(object sender, EventArgs e)
+        {
+            EditNormalisationLaps(latestClickLocation);
+            Invalidate();
+        }
+
+        private void EditNormalisationLaps(Point latestClickLocation)
+        {
+            if (latestClickLocation != null)
+            {
+                DataPoint clickData = GetPointData(latestClickLocation);
+                int indexOfData = NormalisationLaps.FindIndex(l => l == (int)clickData.X);
+                if (indexOfData != -1) //It is in the list
+                {
+                    if (indexOfData != NormalisationLaps.Count - 1) //It is not the last in the list
+                        RemoveNormalisationPoint(indexOfData);
+                }
+                else
+                {
+                    AddNormalisationPoint((int)clickData.X);
+                }
+            }
+        }
+
+        private void AddNormalisationPoint(int valueToAdd)
+        {
+            NormalisationLaps.Add(valueToAdd);
+            if (NormalisationZonesChanged != null)
+                NormalisationZonesChanged(this, NormalisationLaps);
+        }
+
+        private void RemoveNormalisationPoint(int indexToRemoveAt)
+        {
+            NormalisationLaps.RemoveAt(indexToRemoveAt);
+            if (NormalisationZonesChanged != null)
+                NormalisationZonesChanged(this, NormalisationLaps);
+        }
+
+        private void NormalisedGraph_NormalisationZonesChanged(object sender, List<int> e)
+        {
+            NormalisationLaps.Sort();
+            Invalidate();
         }
 
         void NormalisedGraph_NormalisationIndexChanged(object sender, int e)
@@ -109,14 +182,19 @@ namespace Graphing
             List<DataPoint> normalisedPoints;
             DataPoint pointToNormalise;
             int pointIndex;
+            double lastNormalisationValue = 0;
             for (int lineIndex = 0; lineIndex < traces.Count; lineIndex++)
             {
                 normalisedPoints = new List<DataPoint>();
                 pointIndex = 0;
-                while (pointIndex < traces[lineIndex].DataPoints.Count && pointIndex < normalisationTrace.DataPoints.Count)
+                while (pointIndex < traces[lineIndex].DataPoints.Count)
                 {
+                    if (pointIndex < normalisationTrace.DataPoints.Count)
+                        lastNormalisationValue = normalisationTrace.DataPoints[pointIndex].Y;
+                    else
+                        lastNormalisationValue += (lastNormalisationValue / pointIndex + 1); //Add the average value so far
                     pointToNormalise = traces[lineIndex].DataPoints[pointIndex];
-                    normalisedPoints.Add(new DataPoint(pointToNormalise.X, pointToNormalise.Y - normalisationTrace.DataPoints[pointIndex].Y, pointToNormalise.index, pointToNormalise.isCycled));
+                    normalisedPoints.Add(new DataPoint(pointToNormalise.X, pointToNormalise.Y - lastNormalisationValue, pointToNormalise.index, pointToNormalise.cycles));
                     pointIndex++;
                 }
                     normalisedLines.Add(new GraphLine(normalisedPoints, traces[lineIndex].Index, traces[lineIndex].Show, traces[lineIndex].LineColour));
@@ -127,9 +205,7 @@ namespace Graphing
         private List<GraphLine> GetNormalisedLinesOnAverageValue()
         {
             GraphLine normalisationTrace = traces.Find(t => t.Index == NormalisationIndex);
-            double finalValue = normalisationTrace.DataPoints[normalisationTrace.DataPoints.Count - 1].Y;
-            double averageValue = finalValue / (normalisationTrace.DataPoints.Count-1);
-
+            double[] normalisationParameters;
             List<GraphLine> normalisedLines = new List<GraphLine>();
             List<DataPoint> normalisedPoints;
             DataPoint pointToNormalise;
@@ -138,10 +214,11 @@ namespace Graphing
             {
                 normalisedPoints = new List<DataPoint>();
                 pointIndex = 0;
-                while (pointIndex < traces[lineIndex].DataPoints.Count && pointIndex < normalisationTrace.DataPoints.Count)
+                while (pointIndex < traces[lineIndex].DataPoints.Count)
                 {
+                    normalisationParameters = GetAverageNormalisationValues(normalisationTrace, pointIndex);
                     pointToNormalise = traces[lineIndex].DataPoints[pointIndex];
-                    normalisedPoints.Add(new DataPoint(pointToNormalise.X, pointToNormalise.Y - averageValue*pointIndex, pointToNormalise.index, pointToNormalise.isCycled));
+                    normalisedPoints.Add(new DataPoint(pointToNormalise.X, pointToNormalise.Y - normalisationParameters[0]*pointIndex - normalisationParameters[1], pointToNormalise.index, pointToNormalise.cycles));
                     pointIndex++;
                 }
                 normalisedLines.Add(new GraphLine(normalisedPoints, traces[lineIndex].Index, traces[lineIndex].Show, traces[lineIndex].LineColour));
@@ -156,12 +233,11 @@ namespace Graphing
 
             switch (NormalisationType)
             {
-                case Graphing.NormalisationType.OnAverageValue:
-                    double finalValue = normalisationTrace.DataPoints[normalisationTrace.DataPoints.Count - 1].Y;
-                    double averageValue = finalValue / (normalisationTrace.DataPoints.Count-1);
-                    YData = yPosition + (xPosition * averageValue);
+                case NormalisationType.OnAverageValue:
+                    double[] normalisationParameters = GetAverageNormalisationValues(normalisationTrace, xPosition);
+                    YData = yPosition + (xPosition * normalisationParameters[0]) + normalisationParameters[1];
                     break;
-                case Graphing.NormalisationType.OnEveryValue:
+                case NormalisationType.OnEveryValue:
                     double offsetValue = normalisationTrace.DataPoints[xPosition].Y;
                     YData = yPosition + offsetValue;
                     break;
@@ -171,6 +247,34 @@ namespace Graphing
             }
 
             return YData;
+        }
+
+        /// <summary>
+        /// Returns an array [m, c] of the average normalisation trace for the given lap
+        /// </summary>
+        /// <param name="normalisationTrace"></param>
+        /// <param name="pointIndex"></param>
+        /// <returns></returns>
+        private double[] GetAverageNormalisationValues(GraphLine normalisationTrace, int pointIndex)
+        {
+            int endNormalisationX = normalisationLaps.Find(l => l >= pointIndex);
+            int startNormalisationX = normalisationLaps.Find(l => l < pointIndex);
+            if (startNormalisationX == -1) { startNormalisationX = 0; }
+            double differenceY, averageValue, constant;
+            // Get the normalising value
+            // This is easy if the normalisation trace has points near the end
+            if (endNormalisationX < normalisationTrace.DataPoints.Count)
+            {
+                differenceY = normalisationTrace.DataPoints[endNormalisationX].Y - normalisationTrace.DataPoints[startNormalisationX].Y;
+                averageValue = differenceY / (endNormalisationX - startNormalisationX);
+            }
+            else //Do the best we can based on laps in this sector
+            {
+                differenceY = normalisationTrace.DataPoints.Last().Y - normalisationTrace.DataPoints[startNormalisationX].Y;
+                averageValue = differenceY / (normalisationTrace.DataPoints.Count - startNormalisationX);
+            }
+            constant = normalisationTrace.DataPoints[startNormalisationX].Y - averageValue * startNormalisationX;
+            return new double[] { averageValue, constant };
         }
     }
 }

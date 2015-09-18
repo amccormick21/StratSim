@@ -14,7 +14,7 @@ namespace Graphing
     ///     <para>- Label spacing</para>
     /// of a graph axis
     /// </summary>
-    public struct axisParameters
+    public struct AxisParameters
     {
         public int startLocation;
         public int baseOffset;

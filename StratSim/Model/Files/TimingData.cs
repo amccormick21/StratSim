@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using DataSources.DataConnections;
+using System;
 
 namespace StratSim.Model.Files
 {
@@ -230,6 +231,37 @@ namespace StratSim.Model.Files
             }
         }
 
+        /// <summary>Gets a lap time from a specified string</summary>
+        /// <param name="time">A string with the time in mm:ss:000 format</param>
+        /// <returns>The number of seconds represented by the time</returns>
+        public float GetLapTime(string time)
+        {
+            float lapTime = 0;
+            int decimalPlaces = 3;
+
+            if (time[1] != ':')
+            {
+                lapTime += CovertCharToInt(time[0]) * 600; //counts tens of minutes if they are present
+                time = time.Remove(0, 1); //removes tens of minutes
+                decimalPlaces = 2;
+            }
+
+            //add minutes, 10 x seconds, seconds
+            lapTime += CovertCharToInt(time[0]) * 60;
+            lapTime += CovertCharToInt(time[2]) * 10;
+            lapTime += CovertCharToInt(time[3]);
+
+            //add thousandths
+            for (int characterIndex = 1; characterIndex <= decimalPlaces; characterIndex++)
+            {
+                try
+                { lapTime += CovertCharToInt(time[4 + characterIndex]) * (float)Math.Pow(10, -characterIndex); }
+                catch
+                { }
+            }
+
+            return lapTime;
+        }
 
         /// <returns>The file path of the directory containing the required file</returns>
         public static string GetTimingDataDirectory(int raceIndex, int currentYear)

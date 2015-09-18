@@ -22,7 +22,7 @@ namespace StratSim.View.MyFlowLayout
         ToolStripButton Race, Archives;
 
         ToolStripDropDownButton OpenWindows;
-        ToolStripButton Info, Settings, Main, ParameterViewer, StrategyViewer, ArchiveViewer, Graph, Axes, DriverViewer, RaceViewer;
+        ToolStripButton Info, Settings, Main, ParameterViewer, StrategyViewer, ArchiveViewer, Graph, Axes, DriverViewer, RaceViewer, HistoryViewer;
 
         StratSimPanelControlEvents events;
 
@@ -144,6 +144,11 @@ namespace StratSim.View.MyFlowLayout
             tempButton.Click += (s, e) => PanelControlEvents.OnShowRacePanel(base.Form);
             RaceViewer = tempButton;
             OpenWindows.DropDownItems.Add(RaceViewer);
+            tempButton = new ToolStripButton("Histories", Properties.Resources.Archives);
+            tempButton.AutoSize = true;
+            tempButton.Click += (s, e) => PanelControlEvents.OnShowRaceHistoryPanel(base.Form);
+            HistoryViewer = tempButton;
+            OpenWindows.DropDownItems.Add(HistoryViewer);
             //Finish Windows
 
             //Version info

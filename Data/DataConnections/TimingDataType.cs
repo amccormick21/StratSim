@@ -10,7 +10,8 @@ namespace DataSources.DataConnections
     {
         LapTimeData = 0,
         SpeedData = 1,
-        GridData = 2
+        GridData = 2,
+        HistoryData = 3
     }
 
     public static class TimingDataTypeExtensionMethods
@@ -18,7 +19,9 @@ namespace DataSources.DataConnections
         public static string GetPDFFileName(this TimingDataType timingDataType, Session session)
         {
             if (session == Session.Race)
+            {
                 return "Lap Analysis";
+            }
             switch (timingDataType)
             {
                 case TimingDataType.LapTimeData:
@@ -27,6 +30,8 @@ namespace DataSources.DataConnections
                     return "Speed Trap";
                 case TimingDataType.GridData:
                     return "Preliminary Classification";
+                case TimingDataType.HistoryData:
+                    return "History Chart";
                 default:
                     return "";
             }
@@ -42,6 +47,8 @@ namespace DataSources.DataConnections
                     return "Speed Trap";
                 case TimingDataType.GridData:
                     return "Grid";
+                case TimingDataType.HistoryData:
+                    return "History Chart";
                 default:
                     return "";
             }

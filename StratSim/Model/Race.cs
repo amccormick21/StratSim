@@ -11,20 +11,26 @@ using Graphing;
 
 namespace StratSim.Model
 {
-    internal struct racePosition
+    public struct RacePosition
     {
         public int position;
         public int driver;
         public float interval;
         public float gap;
         public float cumulativeTime;
+        public int pitStopsBeforeLap;
+
+        public override string ToString()
+        {
+            return position.ToString() + ": " + driver.ToString() + " - " + gap.ToString();
+        }
     };
 
     public class Race : IDisposable
     {
         RaceStrategy[] raceStrategies;
         RaceStrategy[] originalStrategies;
-        racePosition[,] positions;
+        RacePosition[,] positions;
         bool[,] forcedOvertake;
 
         int trackIndex;
@@ -46,8 +52,8 @@ namespace StratSim.Model
             originalStrategies = (RaceStrategy[])Strategies.Clone();
             raceStrategies = (RaceStrategy[])Strategies.Clone();
 
-            positions = new racePosition[Data.NumberOfDrivers, laps];
-            forcedOvertake = Functions.InitialiseArrayAtValue<bool>(Data.NumberOfDrivers, laps, false);
+            positions = new RacePosition[Data.NumberOfDrivers, laps];
+            forcedOvertake = Functions.InitialiseArrayAtValue(Data.NumberOfDrivers, laps, false);
 
             raceGraph = new NewGraph("Race Graph", AssociatedForm, Properties.Resources.Graph);
             raceGraph.GraphPanel.GraphClicked += GraphPanel_GraphClicked;
@@ -81,7 +87,7 @@ namespace StratSim.Model
         /// </summary>
         public void SetupGrid()
         {
-            Functions.QuickSort<RaceStrategy>(ref raceStrategies, 0, raceStrategies.Length - 1, (a, b) => a.GridPosition > b.GridPosition);
+            Functions.QuickSort(ref raceStrategies, 0, raceStrategies.Length - 1, (a, b) => a.GridPosition > b.GridPosition);
         }
 
         /// <summary>
@@ -92,6 +98,7 @@ namespace StratSim.Model
             //overtake variables:
             Driver driverAhead, driverBehind;
             RaceStrategy temp;
+            int[] pitStops = new int[Data.NumberOfDrivers];
 
             for (int lapNumber = 0; lapNumber < laps; lapNumber++) //for each lap
             {
@@ -146,6 +153,7 @@ namespace StratSim.Model
                     if (raceStrategies[position].PitStops.Exists(lapNumber + 1))
                     {
                         pitStopList.Add(new PitStop(position, lapNumber, raceStrategies[position].PaceParameters.PitStopLoss));
+                        pitStops[raceStrategies[position].DriverIndex]++;
                     }
                 }
 
@@ -165,7 +173,7 @@ namespace StratSim.Model
                     positions[position, lapNumber].driver = raceStrategies[position].Driver.DriverIndex;
                     positions[position, lapNumber].position = position;
                     positions[position, lapNumber].cumulativeTime = raceStrategies[position].CumulativeTime;
-                    
+                    positions[position, lapNumber].pitStopsBeforeLap = pitStops[raceStrategies[position].DriverIndex];
                     if (position == 0)
                     {
                         positions[position, lapNumber].gap = 0;
@@ -177,9 +185,7 @@ namespace StratSim.Model
                         positions[position, lapNumber].interval = GetGapBetweenCars(position - 1, position, lapNumber);
                     }
                 }
-                MyEvents.OnUpdateIntervals(positions, lapNumber);
             } //end for each lap
-
             StartGraph();
         }
 
@@ -195,7 +201,7 @@ namespace StratSim.Model
 
         bool CalculateOvertake(Driver driverAhead, Driver driverBehind, int positionBehind, int lap)
         {
-            Random rand = new Random();
+            Random rand = new Random(0);
             bool overtake;
             float probability;
 
@@ -315,12 +321,12 @@ namespace StratSim.Model
                     tempPoint.Y = FindTime(lapNumber, driver);
                     tempPoint.X = lapNumber;
                     tempPoint.index = driver;
-                    tempPoint.isCycled = false;
+                    tempPoint.cycles = 0;
 
                     traces[driver].DataPoints.Add(tempPoint);
                 }
             }
-
+            Program.DriverSelectPanel.SetPositionData(Positions);
             raceGraph.DrawGraph(traces, true, true);
         }
 
@@ -364,7 +370,7 @@ namespace StratSim.Model
                 s.UpdateStrategyParameters();
             }
 
-            positions = new racePosition[Data.NumberOfDrivers, laps];
+            positions = new RacePosition[Data.NumberOfDrivers, laps];
         }
 
         /// <summary>
@@ -456,7 +462,7 @@ namespace StratSim.Model
         /// <summary>
         /// Gets the data from each race position
         /// </summary>
-        internal racePosition[,] Positions
+        internal RacePosition[,] Positions
         { get { return positions; } }
     }
 }

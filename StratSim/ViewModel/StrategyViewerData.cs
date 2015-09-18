@@ -74,7 +74,7 @@ namespace StratSim.ViewModel
         {
             modified = true;
             SetStrategy(driverIndex, strategy);
-            MyEvents.OnStrategyModificationsComplete(showAllOnGraph, false);
+            MyEvents.OnStrategyModificationsComplete(showAllOnGraph, false, driverIndex);
         }
         void MyEvents_SettingsModified()
         {
@@ -99,7 +99,7 @@ namespace StratSim.ViewModel
                 PopulateDataFromDrivers();
             }
             modified = false;
-            MyEvents.OnStrategyModificationsComplete(true, true);
+            MyEvents.OnStrategyModificationsComplete(true, true, 0);
         }
 
         void PopulateDataFromDrivers()

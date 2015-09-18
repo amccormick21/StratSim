@@ -15,63 +15,53 @@ namespace StratSim.View.UserControls
     {
         StintControlButton Up, Down, AddBefore, Remove;
         Size btnDefault = new Size(21, 21);
-        Strategy thisStrategy;
-        Driver thisDriver;
+        int driverIndex;
         int stintIndex;
 
-        public StintButtonsLayoutPanel(Driver driver, int stintIndex, Strategy strategy)
+        public StintButtonsLayoutPanel(int driverIndex, int stintIndex)
         {
-            thisDriver = driver;
+            this.driverIndex = driverIndex;
             this.stintIndex = stintIndex;
-            thisStrategy = strategy;
 
             InitialiseButtons();
 
-            this.AutoSize = true;
-            this.Size = new Size(42, 42);
-            this.RowCount = 2;
-            this.ColumnCount = 2;
+            AutoSize = true;
+            Size = new Size(42, 42);
+            RowCount = 2;
+            ColumnCount = 2;
         }
 
         void InitialiseButtons()
         {
             MyToolTip tooltip;
-            if (stintIndex != 0)
-            {
-                Up = new StintControlButton(0);
-                Up.Size = btnDefault;
-                Up.BackgroundImage = Properties.Resources.Stint_Up;
-                tooltip = new MyToolTip(Up, "Swap with previous stint");
-                Up.OnButtonClicked += ButtonClicked;
-                this.Controls.Add(Up, 0, 0);
-            }
 
-            if (stintIndex != thisStrategy.NoOfStints - 1)
-            {
-                Down = new StintControlButton(1);
-                Down.Size = btnDefault;
-                Down.BackgroundImage = Properties.Resources.Stint_Down;
-                tooltip = new MyToolTip(Down, "Swap with next stint");
-                Down.OnButtonClicked += ButtonClicked;
-                this.Controls.Add(Down, 0, 1);
-            }
+            Up = new StintControlButton(0);
+            Up.Size = btnDefault;
+            Up.BackgroundImage = Properties.Resources.Stint_Up;
+            tooltip = new MyToolTip(Up, "Swap with previous stint");
+            Up.OnButtonClicked += ButtonClicked;
+            Controls.Add(Up, 0, 0);
+
+            Down = new StintControlButton(1);
+            Down.Size = btnDefault;
+            Down.BackgroundImage = Properties.Resources.Stint_Down;
+            tooltip = new MyToolTip(Down, "Swap with next stint");
+            Down.OnButtonClicked += ButtonClicked;
+            Controls.Add(Down, 0, 1);
 
             AddBefore = new StintControlButton(2);
             AddBefore.Size = btnDefault;
             AddBefore.BackgroundImage = Properties.Resources.Stint_Add;
             tooltip = new MyToolTip(AddBefore, "Add a new stint before this one");
             AddBefore.OnButtonClicked += ButtonClicked;
-            this.Controls.Add(AddBefore, 1, 0);
+            Controls.Add(AddBefore, 1, 0);
 
-            if (thisStrategy.NoOfStints > 2)
-            {
-                Remove = new StintControlButton(3);
-                Remove.Size = btnDefault;
-                Remove.BackgroundImage = Properties.Resources.Stint_Remove;
-                tooltip = new MyToolTip(Remove, "Remove this stint from the strategy");
-                Remove.OnButtonClicked += ButtonClicked;
-                this.Controls.Add(Remove, 1, 1);
-            }
+            Remove = new StintControlButton(3);
+            Remove.Size = btnDefault;
+            Remove.BackgroundImage = Properties.Resources.Stint_Remove;
+            tooltip = new MyToolTip(Remove, "Remove this stint from the strategy");
+            Remove.OnButtonClicked += ButtonClicked;
+            Controls.Add(Remove, 1, 1);
         }
 
         /// <summary>
@@ -80,27 +70,16 @@ namespace StratSim.View.UserControls
         /// <param name="controlNumber">The control number that fired the event</param>
         void ButtonClicked(int controlNumber)
         {
-            int startLapNumber = thisStrategy.Stints[stintIndex].startLap;
-            int midLapNumber = (int)((thisStrategy.Stints[stintIndex].stintLength) / 2) + startLapNumber;
-
-            //Performs the required action on the strategy:
-            switch (controlNumber)
-            {
-                case 0: thisStrategy.SwapStints(stintIndex - 1, stintIndex); break; //moves stint up
-                case 1: thisStrategy.SwapStints(stintIndex, stintIndex + 1); break; //moves stint down
-                case 2: thisStrategy.Stints = thisStrategy.AddPitStop(midLapNumber); break; //splits stint
-                case 3: thisStrategy.Stints = thisStrategy.RemovePitStop(startLapNumber); break; //merges stint with previous
-            }
-
-            //Updates the strategy's parameters
-            thisStrategy.UpdateStrategyParameters();
-            MyEvents.OnStrategyModified(thisDriver, thisStrategy, false);
+            if (StintOrderChanged != null)
+                StintOrderChanged(this, new StintOperationEventArgs(stintIndex, DriverIndex, controlNumber));
         }
 
-        public Driver Driver
+        internal event EventHandler<StintOperationEventArgs> StintOrderChanged;
+
+        public int DriverIndex
         {
-            get { return thisDriver; }
-            set { thisDriver = value; }
+            get { return driverIndex; }
+            set { driverIndex = value; }
         }
 
         public int StintIndex
@@ -124,10 +103,10 @@ namespace StratSim.View.UserControls
         public StintControlButton(int controlNumber)
         {
             this.controlNumber = controlNumber;
-            this.Click += StintControlButton_OnClick;
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Padding = new Padding(0);
-            this.BackColor = Color.White;
+            Click += StintControlButton_OnClick;
+            FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            Padding = new Padding(0);
+            BackColor = Color.White;
         }
 
         void StintControlButton_OnClick(object sender, EventArgs e)

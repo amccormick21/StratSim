@@ -57,6 +57,18 @@ namespace StratSim.View.Panels
             raceLaps = Data.GetRaceLaps();
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            foreach (var panel in StintPanels)
+            {
+                if (panel != null)
+                    panel.Dispose();
+            }
+            if (Results != null)
+                Results.Dispose();
+        }
+
         protected override void LinkToForm(MainForm Form)
         {
             base.LinkToForm(Form);
@@ -86,19 +98,19 @@ namespace StratSim.View.Panels
             PanelControlEvents.OnShowToolStrip(thisToolStripDropDown);
         }
 
-        void driverPanel_NormalisedDriverChanged()
+        void driverPanel_NormalisedDriverChanged(object sender, int e)
         {
-            DisplayStints(Data.DriverIndex);
+            DisplayStints(e);
         }
         /// <summary>
         /// When strategy modifications are completed, re-populates controls
         /// </summary>
         /// <param name="showAllOnGraph">Represents whether all traces should now be shown on the graph</param>
-        void MyEvents_StrategyModificationsComplete(bool showAllOnGraph, bool changeNormalisedDriver)
+        void MyEvents_StrategyModificationsComplete(bool showAllOnGraph, bool changeNormalisedDriver, int driverIndex)
         {
             DrawGraph(showAllOnGraph, changeNormalisedDriver);
-            driverPanel.UpdateRadioButtons(Data.DriverIndex);
-            DisplayStints(Data.DriverIndex);
+            driverPanel.UpdateRadioButtons(driverIndex);
+            DisplayStints(driverIndex);
         }
         /// <summary>
         /// Once data is loaded, displays and populates the controls on the panel
@@ -253,23 +265,70 @@ namespace StratSim.View.Panels
         /// <param name="driverToShow">The driver whose data is being displayed</param>
         void ShowStintPanels(int driverToShow)
         {
-            int stint = 0;
             StintPanel tempPanel;
-
+            int stintLengthUpperBound;
             Strategy strategyToShow = strategyViewerData.GetStrategy(driverToShow);
 
-            foreach (Stint s in strategyToShow.Stints)
+            for (int stintIndex = 0; stintIndex < strategyToShow.Stints.Count; stintIndex++)
             {
-                tempPanel = new StintPanel(stint, Data.Drivers[driverToShow], strategyToShow);
-                tempPanel.Location = new Point(leftBorder, topBorder * (1 + stint) + (80 * stint));
+                //Find the upper bound for the length of the stint: this is passed to the panel for validation
+                if (stintIndex == strategyToShow.NoOfStints - 1) //if stint is last in strategy
+                    stintLengthUpperBound = strategyToShow.Stints[stintIndex].stintLength + strategyToShow.Stints[stintIndex - 1].stintLength;
+                else
+                    stintLengthUpperBound = strategyToShow.Stints[stintIndex].stintLength + strategyToShow.Stints[stintIndex + 1].stintLength;
+
+                tempPanel = new StintPanel(stintIndex, strategyToShow.Stints[stintIndex].stintLength, strategyToShow.Stints[stintIndex].tyreType, strategyToShow.Stints[stintIndex].TotalTime(), driverToShow, stintLengthUpperBound);
+                tempPanel.StintOrderChanged += TempPanel_StintOrderChanged;
+                tempPanel.StintLengthChanged += TempPanel_StintLengthChanged;
+                tempPanel.TyreTypeChanged += TempPanel_TyreTypeChanged;
+                tempPanel.Location = new Point(leftBorder, topBorder * (1 + stintIndex) + (80 * stintIndex));
                 StintPanels.Add(tempPanel);
-                this.Controls.Add(tempPanel);
-                stint++;
+                Controls.Add(tempPanel);
             }
 
             Results = new ResultsPanel(driverToShow, strategyToShow);
             Results.Location = new Point(leftBorder, topBorder * (1 + StintPanels.Count) + (80 * StintPanels.Count));
-            this.Controls.Add(Results);
+            Controls.Add(Results);
+        }
+
+        private void TempPanel_StintLengthChanged(object sender, StintLengthChangedEventArgs e)
+        {
+            //Update the stint length if it has changed
+            var strategy = strategyViewerData.GetStrategy(e.DriverIndex);
+            if (e.NewStintLength != strategy.Stints[e.StintIndex].stintLength)
+            {
+                strategy.Stints = strategy.ChangeStintLength(e.StintIndex, e.NewStintLength);
+                strategy.UpdateStrategyParameters();
+                MyEvents.OnStrategyModified(Data.Drivers[e.DriverIndex], strategy, false);
+            }
+        }
+
+        private void TempPanel_TyreTypeChanged(object sender, TyreTypeChangedEventArgs e)
+        {
+            var strategy = strategyViewerData.GetStrategy(e.DriverIndex);
+            //Changes the tyre type of the stint.
+            strategy.ChangeStintTyreType(e.StintIndex, e.NewTyreType);
+        }
+
+        private void TempPanel_StintOrderChanged(object sender, StintOperationEventArgs e)
+        {
+            var strategy = strategyViewerData.GetStrategy(e.DriverIndex);
+            int startLapNumber = strategy.Stints[e.StintIndex].startLap;
+            int midLapNumber = ((strategy.Stints[e.StintIndex].stintLength) / 2) + startLapNumber;
+
+            //Performs the required action on the strategy:
+            switch (e.StintOperationIndex)
+            {
+                case 0: if (e.StintIndex != 0) { strategy.SwapStints(e.StintIndex - 1, e.StintIndex); } break; //moves stint up
+                case 1: if (e.StintIndex != strategy.NoOfStints - 1) { strategy.SwapStints(e.StintIndex, e.StintIndex + 1); } break; //moves stint down
+                case 2: strategy.Stints = strategy.AddPitStop(midLapNumber); break; //splits stint
+                case 3: if (strategy.NoOfStints > 2) { strategy.Stints = strategy.RemovePitStop(startLapNumber); } break; //merges stint with previous
+            }
+
+            //Updates the strategy's parameters
+            strategy.UpdateStrategyParameters();
+            MyEvents.OnStrategyModified(Data.Drivers[e.DriverIndex], strategy, false);
+
         }
 
         /// <summary>
@@ -301,7 +360,7 @@ namespace StratSim.View.Panels
                 tempPoint.index = driverIndex;
                 tempPoint.X = 0;
                 tempPoint.Y = 0;
-                tempPoint.isCycled = false;
+                tempPoint.cycles = 0;
                 pointList.DataPoints.Add(tempPoint);
 
                 //The points are now defined as the state at the end of a lap
@@ -311,7 +370,7 @@ namespace StratSim.View.Panels
                     tempPoint.index = driverIndex;
                     tempPoint.X = ++lapsThroughRace;
                     tempPoint.Y = cumulativeTime;
-                    tempPoint.isCycled = false;
+                    tempPoint.cycles = 0;
 
                     pointList.DataPoints.Add(tempPoint);
                 }
